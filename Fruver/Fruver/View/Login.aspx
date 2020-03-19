@@ -18,17 +18,17 @@
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre Usuario</label>                                    
                                     <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_Login"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RFV_UserName" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" MaxLength="20" ControlToValidate="TB_UserName"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RFV_UserName" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_UserName"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Password</label>
                                     <asp:TextBox ID="TB_Password" class="form-control float-left" Width="95%" runat="server" TextMode="Password" ValidationGroup="VG_Login"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RFV_Password" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" MaxLength="20" ControlToValidate="TB_Password"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RFV_Password" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Password"></asp:RequiredFieldValidator>
                                 </div>
                                 <center>
                                     <asp:Button ID="B_IniciarSesion" runat="server" Text="Iniciar Sesion" class="btn btn-primary"/>
                                 </center>
-                                <asp:HyperLink ID="HL_RecuperarPassword" class="d-block pt-4 text-secondary text-center" style="font-size:15px; text-transform:none;" runat="server" NavigateUrl="~/View/GenerarToken.aspx">Recuperar contraseña</asp:HyperLink>
+                                <asp:HyperLink ID="HL_RecuperarPassword" class="d-block pt-4 text-secondary text-center" style="font-size:15px; text-transform:none;" runat="server" NavigateUrl="~/View/RecuperarPassword.aspx">Recuperar contraseña</asp:HyperLink>
                             </h2>
                         </div>
                     </div>
