@@ -4,6 +4,8 @@
 </asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server"> 
     <section class="page-section about-heading position-relative d-block w-50" style="margin:80px auto;"> 
+        <br />
+        <br />
         <div class="container"> 
             <div class="about-heading-content"> 
                 <div class="row"> 

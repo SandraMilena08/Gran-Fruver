@@ -1,15 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Master.master" AutoEventWireup="true" CodeFile="~/Controller/RecuperarPassword.aspx.cs" Inherits="View_RecuperarPassword" %>
 
-<<<<<<< HEAD
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-</asp:Content>
-=======
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
 </asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server"> 
     <section class="page-section about-heading position-relative d-block w-50" style="margin:80px auto;"> 
+        <br />
+        <br />
         <div class="container"> 
             <div class="about-heading-content"> 
                 <div class="row"> 
@@ -36,5 +35,5 @@
         </div> 
     </section> 
 </asp:Content> 
->>>>>>> master
+
 
