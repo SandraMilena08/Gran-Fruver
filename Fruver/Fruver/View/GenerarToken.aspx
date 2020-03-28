@@ -14,11 +14,11 @@
                             <h2 class="section-heading mb-4"> 
                                 <span class="section-heading-lower text-center mb-4" style="font-size:35px">Recuperar Contraseña</span> 
                                 <div class="input-group flex-nowrap"> 
-                                    <asp:TextBox ID="TB_RecuperarNombreUsuario" class="form-control" style="font-size:12px" placeholder="Nombre Usuario" aria-label="Username" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_GenerarToken" MaxLength="20"></asp:TextBox> 
-                                    <asp:RequiredFieldValidator ID="RV_RecuperarNombreUsuario" runat="server" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" ErrorMessage="*" ControlToValidate="TB_RecuperarNombreUsuario" ></asp:RequiredFieldValidator> 
+                                    <asp:TextBox ID="TB_RecuperarCorreo" class="form-control" style="font-size:12px" placeholder="Correo Usuario" aria-label="Username" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_GenerarToken" MaxLength="30"></asp:TextBox> 
+                                    <asp:RequiredFieldValidator ID="RV_RecuperarCorreo" runat="server" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" ErrorMessage="*" ControlToValidate="TB_RecuperarCorreo" ></asp:RequiredFieldValidator> 
                                 </div> 
                                 <center> 
-                                    <asp:Button ID="B_GenerarToken" runat="server" Text="Recuperar" class="btn btn-primary"/> 
+                                    <asp:Button ID="B_GenerarToken" runat="server" Text="Recuperar" class="btn btn-primary" OnClick="B_GenerarToken_Click"/> 
                                 </center> 
                             </h2> 
                         </div> 

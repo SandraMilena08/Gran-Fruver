@@ -2,7 +2,6 @@
 
 
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
 </asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server"> 
@@ -25,7 +24,7 @@
                                     <asp:RequiredFieldValidator ID="RV_PasswordNuevamente" runat="server" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" ErrorMessage="*" ControlToValidate="TB_PasswordNuevamente" ></asp:RequiredFieldValidator> 
                                 </div> 
                                 <center> 
-                                    <asp:Button ID="B_GuardarRecuperar" runat="server" Text="Guardar Cambios" class="btn btn-primary"/> 
+                                    <asp:Button ID="B_GuardarRecuperar" runat="server" Text="Guardar Cambios" class="btn btn-primary" OnClick="B_GuardarRecuperar_Click"/> 
                                 </center> 
                             </h2> 
                         </div> 

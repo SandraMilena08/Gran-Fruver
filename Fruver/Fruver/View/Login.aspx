@@ -26,9 +26,9 @@
                                     <asp:RequiredFieldValidator ID="RFV_Password" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Password"></asp:RequiredFieldValidator>
                                 </div>
                                 <center>
-                                    <asp:Button ID="B_IniciarSesion" runat="server" Text="Iniciar Sesion" class="btn btn-primary"/>
+                                    <asp:Button ID="B_IniciarSesion"  runat="server" Text="Iniciar Sesion" class="btn btn-primary" OnClick="B_IniciarSesion_Click" />
                                 </center>
-                                <asp:HyperLink ID="HL_RecuperarPassword" class="d-block pt-4 text-secondary text-center" style="font-size:15px; text-transform:none;" runat="server" NavigateUrl="~/View/RecuperarPassword.aspx">Recuperar contraseña</asp:HyperLink>
+                                <a href="GenerarToken.aspx" class="d-block pt-4 text-secondary text-center" style="font-size:15px; text-transform:none;">Recuperar Contraseña</a>
                             </h2>
                         </div>
                     </div>
