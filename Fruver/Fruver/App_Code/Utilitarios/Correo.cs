@@ -29,7 +29,7 @@ public class Correo
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             //Especificamos el correo desde el que se enviará el Email y el nombre de la persona que lo envía
-            mail.From = new MailAddress("sandra.duarte0806@gmail.com", "Gran Fruver - Recuperación de Contraseña");
+            mail.From = new MailAddress("ejuliethmoreno@gmail.com", "Gran Fruver - Recuperación de Contraseña");
 
             //Aquí ponemos el asunto del correo
             mail.Subject = "Recuperación Contraseña";

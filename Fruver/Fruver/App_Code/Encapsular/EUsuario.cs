@@ -23,9 +23,9 @@ public class EUsuario
     private string direccion;
     private Nullable<int> rolId;
     private string nombreRol;
-    private string session;
+    private string session = "1";
     private Nullable<DateTime> lastModify;
-    private int estadoId;
+    private int estadoId =1;
     private string token;
     private Nullable<DateTime> vencimientoToken;
 
@@ -57,5 +57,5 @@ public class EUsuario
     [Column("vencimiento_token")]
     public Nullable<DateTime> VencimientoToken { get => vencimientoToken; set => vencimientoToken = value; }
     [NotMapped]
-    public string NombreRol { get => nombreRol; set => nombreRol = value; } // Perdon
+    public string NombreRol { get => nombreRol; set => nombreRol = value; } 
 }

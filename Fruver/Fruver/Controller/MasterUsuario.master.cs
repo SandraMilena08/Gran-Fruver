@@ -11,7 +11,7 @@ public partial class View_MasterUsuario : System.Web.UI.MasterPage
     {
         if (Session["rolId"] != null) 
         {
-            if (int.Parse(Session["rolId"].ToString()) != 1) // Y mi
+            if (int.Parse(Session["rolId"].ToString()) != 1) 
             {
                 Response.Redirect("Index.aspx");
             }

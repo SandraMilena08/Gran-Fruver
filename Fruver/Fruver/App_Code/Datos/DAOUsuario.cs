@@ -16,7 +16,7 @@ public class DAOUsuario
     {
         using (var db = new Mapeo())
         {
-            return db.usuario.Where(x => x.UserName.Equals(usuario.UserName) && x.Password.Equals(usuario.Password)).FirstOrDefault(); // Espera
+            return db.usuario.Where(x => x.UserName.Equals(usuario.UserName) && x.Password.Equals(usuario.Password)).FirstOrDefault(); 
         }
 
     }
@@ -46,7 +46,7 @@ public class DAOUsuario
         }
 
     }
-
+   
     public void actualizarUsuario(EUsuario usuario)
     {
         using (var db = new Mapeo())
@@ -93,6 +93,54 @@ public class DAOUsuario
             var entry = db.Entry(aut);
             entry.State = EntityState.Modified;
             db.SaveChanges();
+        }
+    }
+    public void insertarUsuario(EUsuario eUsuario)
+    {
+        using (var db = new Mapeo())
+        {
+            db.usuario.Add(eUsuario);
+            db.SaveChanges();
+        }
+    }
+
+    public List<EUsuario> obtenerUsuario()
+    {
+        using (var db = new Mapeo())
+        {
+            return (from uu in db.usuario
+
+                    select new
+                    {
+                        uu
+                    }).ToList().Select(m => new EUsuario
+                    {
+
+                        Id = m.uu.Id,
+                        Nombre = m.uu.Nombre,
+                        UserName = m.uu.UserName,
+                        Celular = m.uu.Celular,
+                        Correo = m.uu.Correo,
+                        Direccion = m.uu.Direccion,
+                        Password = m.uu.Password,
+                        EstadoId = m.uu.EstadoId,
+                        NombreRol = m.uu.NombreRol,
+                        Session = m.uu.Session,
+                        RolId = m.uu.RolId,
+                       LastModify = m.uu.LastModify,
+  
+                    }).ToList();
+        }
+
+    }
+
+    public List<EUsuario> buscarUsuario()
+    {
+         
+        using (var db = new Mapeo())
+        {
+            List<EUsuario> eUsuario = db.usuario.Where(x => x.RolId == 2).ToList();
+            return eUsuario;
         }
     }
 }

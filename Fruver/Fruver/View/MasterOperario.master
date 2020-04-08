@@ -54,12 +54,7 @@
                      <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Catalogo</a>
                     </li>
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Index.aspx">
-                            <asp:ImageButton ID="IB_CerrarSesionOperario" class="icon-power-off" style="color:#fff; font-size:22px;" title="Cerrar Sesion" runat="server" OnClick="IB_CerrarSesionOperario_Click" />
-                        </a>
-                    </li>
-                  
+                 
                 </ul>
             </div>
         </div>

@@ -57,7 +57,7 @@
                                 <center>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Celular</label>
-                                    <asp:TextBox ID="TB_Celular" class="form-control float-left" Width="95%" runat="server" TextMode="Number" ValidationGroup="VG_RegistroUsuario"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Celular" class="form-control float-left" Width="95%" runat="server" TextMode="Number" min="1111111111" max="9999999999" ValidationGroup="VG_RegistroUsuario"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Celular"></asp:RequiredFieldValidator>
                                 </div>
                                 <center>
@@ -67,7 +67,7 @@
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Direccion"></asp:RequiredFieldValidator>
                                 </div>
                                 <center>
-                                    <asp:Button ID="B_IniciarSesion" runat="server" Text="Registrarme" class="btn btn-danger"/>
+                                    <asp:Button ID="B_IniciarSesion" runat="server" Text="Registrarme" class="btn btn-danger" OnClick="B_IniciarSesion_Click"/>
                                </h2>
                         </div>
                     </div>

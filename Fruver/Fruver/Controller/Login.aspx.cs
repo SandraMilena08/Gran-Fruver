@@ -14,50 +14,60 @@ public partial class View_Login : System.Web.UI.Page
 
     protected void B_IniciarSesion_Click(object sender, EventArgs e)
     {
-        EUsuario eUsuario = new EUsuario();
-        string usuarioIngresado = TB_UserName.Text;
-        string contraseniaIngresada = TB_Password.Text;
-        eUsuario.UserName = usuarioIngresado;
-        eUsuario.Password = contraseniaIngresada;
-        
-        eUsuario = new DAOUsuario().login(eUsuario);
 
-        if (eUsuario == null) 
+        if (TB_UserName.Text.Contains("=") || TB_UserName.Text.Contains("'") || TB_Password.Text.Contains("'") || TB_Password.Text.Contains("=")) 
         {
-            Response.Write("<script type='text/javascript'>alert('Datos incorrectos');</script>");
+          
+           Response.Write("<script type='text/javascript'>alert('Simbolos estan prohibidos por motivos de seguridad');</script>");
         }
-        else if(eUsuario.EstadoId == 2){
-            Response.Write("<script type='text/javascript'>alert('Su cuenta esta en espera de recuperar contraseña');</script>");
-            return;
-        }
-        else if(eUsuario !=null){
+        else
+        {
 
-            Session["userName"] = eUsuario.UserName;
-            Session["id"] = eUsuario.Id;
-            Session["rolId"] = eUsuario.RolId;
+            EUsuario eUsuario = new EUsuario();
+            string usuarioIngresado = TB_UserName.Text;
+            string contraseniaIngresada = TB_Password.Text;
+            eUsuario.UserName = usuarioIngresado;
+            eUsuario.Password = contraseniaIngresada;
+        
+            eUsuario = new DAOUsuario().login(eUsuario);
 
-            conexion();
-
-            switch (eUsuario.RolId)
+            if (eUsuario == null) 
             {
-
-                // Usuario
-                case 1:
-                    Response.Redirect("PaginaProductos.aspx");
-                    break;
-
-                // Operario logistico
-                case 2:
-                    Response.Redirect("Inventario.aspx");
-                    break;
-
-                // Administrador
-                case 3:
-                    Response.Redirect("Index.aspx");
-                    break;
+                Response.Write("<script type='text/javascript'>alert('Datos incorrectos');</script>");
             }
+            else if(eUsuario.EstadoId == 2){
+                Response.Write("<script type='text/javascript'>alert('Su cuenta esta en espera de recuperar contraseña');</script>");
+                return;
+            }
+            else if(eUsuario !=null){
+
+                Session["userName"] = eUsuario.UserName;
+                Session["id"] = eUsuario.Id;
+                Session["rolId"] = eUsuario.RolId;
+
+                conexion();
+
+                switch (eUsuario.RolId)
+                {
+
+                    // Usuario
+                    case 1:
+                        Response.Redirect("PaginaProductos.aspx");
+                        break;
+
+                    // Operario logistico
+                    case 2:
+                        Response.Redirect("Inventario.aspx");
+                        break;
+
+                    // Administrador
+                    case 3:
+                        Response.Redirect("AdminOperario.aspx");
+                        break;
+                }
         }
-           
+
+        }
     }
 
     protected void conexion()
@@ -68,7 +78,9 @@ public partial class View_Login : System.Web.UI.Page
         autenticar.FechaFin = DateTime.Now;
         autenticar.Ip = conexion.ip();
         autenticar.Mac = conexion.mac();
+
         autenticar.UserId = int.Parse((Session["rolId"]).ToString());
+        
         autenticar.Session = Session.SessionID;
 
         new DAOUsuario().insertarAutentication(autenticar);

@@ -17,7 +17,7 @@ public class EAutenticacion
     private string mac;
     private DateTime fechaInicio;
     private Nullable<DateTime> fechaFin;
-    private string session;
+    private string session ;
 
     [Key]
     [Column("id")]

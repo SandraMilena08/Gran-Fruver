@@ -1,12 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class View_GenerarToken : System.Web.UI.Page
 {
@@ -30,7 +26,9 @@ public partial class View_GenerarToken : System.Web.UI.Page
 
         usuario.Password = "";
         usuario.EstadoId = 2;
-        usuario.Token = encriptar(JsonConvert.SerializeObject(usuario));
+
+       usuario.Token = encriptar(JsonConvert.SerializeObject(usuario));
+        
         usuario.VencimientoToken = DateTime.Now.AddDays(1);
         usuario.Session = usuario.Session = "Sistema";
 
