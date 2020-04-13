@@ -1,0 +1,62 @@
+﻿.gridView {
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Myanmar Text';
+    font-weight: bold;
+    border: hidden;
+}
+    /*Selecciona las filas pares y las colorea*/
+    .gridView tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+    /*Estilo para las casillas del gridView*/
+    .gridView td {
+        padding-left: 3px;
+        padding-right: 3px;
+        border: hidden;
+        font-weight:500;
+    }
+
+.gridViewHeader {
+    height: 35px;
+}
+
+    .gridViewHeader th {
+        background-color: #e90032;
+        padding: 5px;
+        border: hidden;
+        color: #fff;
+    }
+
+        /*Redondeamos el borde superior izquierdo de la primera casilla del header*/
+
+        .gridViewHeader th:first-child {
+            border-radius: 5px 0 0 0;
+        }
+
+        /*Y el borde superior derecho de la ultima casilla*/
+
+        .gridViewHeader th:last-child {
+            border-radius: 0 5px 0 0;
+        }
+
+        /*Estilo para los enlaces del header...*/
+
+        .gridViewHeader th a {
+            padding: 5px;
+            text-decoration: none;
+            color: #435B14;
+            background-color: #b6ff00;
+            border-radius: 5px;
+        }
+
+            .gridViewHeader th a:hover {
+                color: #435B14;
+                background-color: #B1C689;
+                box-shadow: 0 0 .9em rgba(0, 0, 0, .8);
+            }
+
+/*Color de fondo para la paginación*/
+
+

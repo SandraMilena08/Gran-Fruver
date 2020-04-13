@@ -19,7 +19,7 @@ public partial class View_RegistroUsuario : System.Web.UI.Page
         usuario.UserName = TB_Username.Text;
         usuario.Correo = TB_Correo.Text;
         usuario.Password = TB_Password.Text;
-        usuario.Celular = int.Parse(TB_Celular.Text);
+        usuario.Celular = long.Parse(TB_Celular.Text);
         usuario.Direccion = TB_Direccion.Text;
         usuario.Session = usuario.Session;
         usuario.RolId = 1;

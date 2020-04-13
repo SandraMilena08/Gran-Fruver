@@ -1,0 +1,107 @@
+﻿#gv_cntr { /* Contenedor del Grid */
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 85%;
+    height: auto;
+    margin: 25px auto;
+    background-color: transparent; /* Despues lo cambio, solo es prueba */
+    overflow: hidden;
+}
+
+/* Estilos del Grid View */
+#gv_cntr > div {
+    display: flex;
+    width: 100%;
+    height: auto;    
+}
+
+#gv_cntr .grid_view {
+    display: flex;
+    width: 100%;
+    height: auto;    
+    border: none;
+    box-shadow: none;
+}
+
+#gv_cntr .grid_view > tbody {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    border: none;
+    box-shadow: none;
+}
+
+#gv_cntr .grid_view > tbody > tr {
+    display: flex;
+    width: 100%;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    overflow: hidden;
+}
+
+#gv_cntr .grid_view > tbody > tr {
+    background-color: rgb(255,255,255);    
+}
+
+#gv_cntr .grid_view > tbody > tr:nth-child(odd) {
+    background-color: rgb(206,200,194);
+}
+
+#gv_cntr .grid_view > tbody > tr:first-child > th {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12.5%;
+    height: 70px;
+    font-family: 'RC-Bold'; /*Fuente de la letra*/
+    font-size: 16px; /*Tamaño de la letra*/
+    color: #fff;
+    text-transform: uppercase;
+    background-color: rgb(233,86,50);
+    border: none;
+    box-shadow: none;
+}
+
+/* Para grid view de 3 columnas */
+#gv_cntr .three_columns_grid_view > tbody > tr:first-child > th {
+    width: 33.3%;
+}
+
+/* Para grid view de 4 columnas */
+#gv_cntr .four_columns_grid_view > tbody > tr:first-child > th {
+    width: 25%;
+}
+
+#gv_cntr .grid_view > tbody > tr > td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12.5%;
+    height: 70px;    
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+#gv_cntr .grid_view > tbody > tr > td > img {
+    display: block;
+    height: 90%;
+    width: auto;    
+}
+
+/* Para grid view de 3 columnas */
+#gv_cntr .three_columns_grid_view > tbody > tr > td {
+    width: 33.3%;
+}
+
+/* Para grid view de 4 columnas */
+#gv_cntr .four_columns_grid_view > tbody > tr > td {
+    width: 25%;
+}
+/* Final Estilos del Grid View */

@@ -19,7 +19,7 @@ public class EUsuario
     private string userName;
     private string correo;
     private string password;
-    private int celular;
+    private long celular;
     private string direccion;
     private Nullable<int> rolId;
     private string nombreRol;
@@ -41,7 +41,7 @@ public class EUsuario
     [Column("password")]
     public string Password { get => password; set => password = value; }
     [Column("celular")]
-    public int Celular { get => celular; set => celular = value; }
+    public long Celular { get => celular; set => celular = value; }
     [Column("direccion")]
     public string Direccion { get => direccion; set => direccion = value; }
     [Column("rol_id")]

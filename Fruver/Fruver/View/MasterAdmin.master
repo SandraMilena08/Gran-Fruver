@@ -24,6 +24,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>    
+    <form id="form1" runat="server" style="overflow: hidden;">
     <h1 class="site-heading text-center text-white d-none d-lg-block">
         <span class="site-heading-lower  font-weight-bold ">Gran Fruver</span>
     </h1>    
@@ -37,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Inventario.aspx">Operario</a>                          
+                        <a class="nav-link text-uppercase text-expanded" href="AdminOperario.aspx">Operarios</a>                          
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="RegistroUsuario.aspx">Lotes</a>
@@ -54,12 +55,17 @@
                      <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Productos</a>
                     </li>
+                      <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="Index.aspx">
+                            <asp:ImageButton ID="IB_CerrarSesion" Style="color: #fff; font-size: 22px;" title="" runat="server"  ImageUrl="~/View/icons/power-off.png" OnClick="IB_CerrarSesion_Click" ValidationGroup="VG_Operario" />
+                        </a>
+                    </li>
                  
                 </ul>
             </div>
         </div>
     </nav>
-    <form id="form1" runat="server" style="overflow: hidden;">
+    
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

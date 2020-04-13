@@ -9,9 +9,5 @@ public partial class View_PaginaProductos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if(Session["userValido"] == null)
-        //{
-        //    Response.Redirect("Login.aspx");
-        //}
     }
 }

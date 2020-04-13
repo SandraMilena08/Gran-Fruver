@@ -1,0 +1,15 @@
+﻿/* Agregando Fuentes Perzonalizadas */
+@font-face {
+    font-family: 'RC';
+    src: url('RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'RC-Bold';
+    src: url('RobotoCondensed-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'RC-Light';
+    src: url('RobotoCondensed-Light.ttf');
+}

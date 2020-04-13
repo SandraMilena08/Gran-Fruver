@@ -7,6 +7,25 @@ using System.Web.UI.WebControls;
 
 public partial class View_MasterAdmin : System.Web.UI.MasterPage
 {
-    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["rolId"] != null)
+        {
+            if (int.Parse(Session["rolId"].ToString()) != 3)
+            {
+                Response.Redirect("Index.aspx");
+            }
 
+        }
+        else
+            Response.Redirect("Index.aspx");
+    }
+
+
+    protected void IB_CerrarSesion_Click(object sender, ImageClickEventArgs e)
+    {
+         Session.Abandon();
+         Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+        
+    }
 }

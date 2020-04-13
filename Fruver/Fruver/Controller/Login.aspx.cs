@@ -52,17 +52,17 @@ public partial class View_Login : System.Web.UI.Page
 
                     // Usuario
                     case 1:
-                        Response.Redirect("PaginaProductos.aspx");
+                        Response.Redirect("BienvenidoUsuario.aspx");
                         break;
 
                     // Operario logistico
                     case 2:
-                        Response.Redirect("Inventario.aspx");
+                        Response.Redirect("BienvenidoOperario.aspx");
                         break;
 
                     // Administrador
                     case 3:
-                        Response.Redirect("AdminOperario.aspx");
+                        Response.Redirect("BienvenidoAdministrador.aspx");
                         break;
                 }
         }

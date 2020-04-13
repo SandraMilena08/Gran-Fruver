@@ -143,4 +143,17 @@ public class DAOUsuario
             return eUsuario;
         }
     }
+
+    public void eliminarUsuario(EUsuario usuario)
+    {
+        using (var db = new Mapeo())
+        {
+            db.usuario.Attach(usuario);
+
+            var entry = db.Entry(usuario);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+
+        }
+    }
 }
