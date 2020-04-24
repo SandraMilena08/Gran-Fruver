@@ -25,6 +25,7 @@ public class Mapeo : DbContext
     public DbSet<ERol> rol { get; set; }
     public DbSet<EAutenticacion> autenticacion { get; set; }
     public DbSet<EProducto> producto { get; set; }
+    public DbSet<ELotes> lotes { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

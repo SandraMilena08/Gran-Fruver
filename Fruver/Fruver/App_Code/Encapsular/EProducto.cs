@@ -16,6 +16,7 @@ public class EProducto
     private string nombre;
     private string imagen;
     private Nullable<bool> disponibilidad;
+    private List<ELotes> lotes;
 
     [Key]
     [Column("id")]
@@ -26,4 +27,10 @@ public class EProducto
     public string Imagen { get => imagen; set => imagen = value; }
     [Column("disponibilidad")]
     public Nullable<bool> Disponibilidad { get => disponibilidad; set => disponibilidad = value; }
+    [NotMapped]
+    public List<ELotes> Lotes { get => lotes; set => lotes = value; }
+
+    
+    
+
 }

@@ -16,7 +16,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Nombre") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Nombre") %>' ValidationGroup="GV_Usuario" Width="116px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
@@ -24,7 +24,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="UserName" SortExpression="UserName">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("UserName") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("UserName") %>' ValidationGroup="GV_Usuario" Width="109px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("UserName") %>'></asp:Label>
@@ -32,7 +32,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Correo" SortExpression="Correo">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Correo") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Correo") %>' ValidationGroup="GV_Usuario" Width="128px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("Correo") %>'></asp:Label>
@@ -40,7 +40,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Password" SortExpression="Password">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Password") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Password") %>' ValidationGroup="GV_Usuario" Width="120px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" Text='<%# Bind("Password") %>'></asp:Label>
@@ -48,7 +48,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Celular" SortExpression="Celular">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Celular") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Celular") %>' ValidationGroup="GV_Usuario"  Width="120px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Celular") %>'></asp:Label>
@@ -56,7 +56,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Direccion" SortExpression="Direccion">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Direccion") %>' ValidationGroup="GV_Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Direccion") %>' ValidationGroup="GV_Usuario" Width="113px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label6" runat="server" Text='<%# Bind("Direccion") %>'></asp:Label>
