@@ -9,6 +9,19 @@ using System.Web;
 /// </summary>
 public class DAOProducto
 {
+
+    public EProducto BuscarProducto(int id) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
+                return db.producto.Where(x => x.Id ==  id).FirstOrDefault();
+            }
+
+        } catch { return null; }
+    }
+
     public bool insertarProducto(EProducto eProducto)
     {
         try

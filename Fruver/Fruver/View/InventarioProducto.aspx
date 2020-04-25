@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="gv_cntr">
-        <asp:gridview id="GV_InventarioProducto" class="grid_view three_columns_grid_view" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" >
+        <asp:gridview id="GV_InventarioProducto" class="grid_view six_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" OnRowCommand="GV_InventarioProducto_RowCommand" >
             <Columns>
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                 <asp:TemplateField HeaderText="Imagen" SortExpression="Imagen">
@@ -21,17 +21,12 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Disponibilidad" SortExpression="Disponibilidad">
                     <ItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Disponibilidad") %>' ValidationGroup="GV_Usuario" Enabled="false" />
+                        <asp:CheckBox ID="CB_Disponibilidad" runat="server" Checked='<%# Bind("Disponibilidad") %>' ValidationGroup="GV_Usuario" Enabled="false" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField ButtonType="Image" CancelImageUrl="~/View/icons/close.png" EditImageUrl="~/View/icons/edit.png" HeaderText="Editar" ShowEditButton="True" UpdateImageUrl="~/View/icons/edit.png" ValidationGroup="GV_Usuario"/>
                 <asp:CommandField DeleteImageUrl="~/View/icons/close.png" HeaderText="Eliminar" ShowDeleteButton="True" ButtonType="Image" />
-                <asp:TemplateField HeaderText="Lote">
-                    <ItemTemplate>
-                        <asp:GridView ID="GridView1" runat="server" DataSource='<%# Bind("Lotes") %>'>
-                        </asp:GridView>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:ButtonField ButtonType="Image" CommandName="Ver_Detalle" Text="Ver detalles" ImageUrl="~/View/icons/read-more.png" />
                 </Columns>
          </asp:gridview>
         <asp:ObjectDataSource ID="ODS_Producto" runat="server" DataObjectTypeName="EProducto"  DeleteMethod="eliminarProducto" InsertMethod="insertarProductoNuevo" SelectMethod="obtenerProductos" TypeName="DAOProducto" UpdateMethod="actualizarProducto"></asp:ObjectDataSource>

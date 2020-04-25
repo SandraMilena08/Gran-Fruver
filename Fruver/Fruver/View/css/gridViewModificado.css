@@ -5,7 +5,7 @@
     width: 85%;
     height: auto;
     margin: 25px auto;
-    background-color: transparent; /* Despues lo cambio, solo es prueba */
+    background-color: transparent; 
     overflow: hidden;
 }
 
@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     width: 12.5%;
-    height: 70px;
+    height: 80px;
     font-family: 'RC-Bold'; /*Fuente de la letra*/
     font-size: 16px; /*Tamaño de la letra*/
     color: #fff;
@@ -72,7 +72,10 @@
 #gv_cntr .three_columns_grid_view > tbody > tr:first-child > th {
     width: 33.3%;
 }
-
+   /* Para grid view de 6 columnas */
+#gv_cntr .six_columns_grid_view > tbody > tr:first-child > th {
+    width: 16.66%;
+}
 /* Para grid view de 4 columnas */
 #gv_cntr .four_columns_grid_view > tbody > tr:first-child > th {
     width: 25%;
@@ -82,26 +85,60 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 12.5%;
-    height: 70px;    
+    width: 12.5%;  
     border: none;
     box-shadow: none;
     overflow: hidden;
 }
 
-#gv_cntr .grid_view > tbody > tr > td > img {
-    display: block;
-    height: 90%;
-    width: auto;    
-}
-
 /* Para grid view de 3 columnas */
 #gv_cntr .three_columns_grid_view > tbody > tr > td {
-    width: 33.3%;
+    width: 11.1%;
+}
+
+    /* Para grid view de 6 columnas */
+#gv_cntr .six_columns_grid_view > tbody > tr > td {
+    width: 16.66%;
+    height:auto;
+}
+
+#gv_cntr .grid_view_big_height > tbody > tr > td {
+    height: auto;
+}
+
+#gv_cntr .grid_view > tbody > tr > td > img {
+    display: block;    
+    width: 50%;
+    height: auto;
+}
+
+#gv_cntr .six_columns_grid_view > tbody > tr > td > img {
+    display: block;
+    width: 50%;
+    height: auto;
 }
 
 /* Para grid view de 4 columnas */
 #gv_cntr .four_columns_grid_view > tbody > tr > td {
     width: 25%;
 }
+
+/* Para el grid ingerto */
+#gv_cntr .grid_view_ingerto > tbody > tr > td {
+    width: 10%;
+}
+
+#gv_cntr .grid_view_ingerto > tbody > tr > td:last-child {
+    width: 50%;
+}
+
+#gv_cntr .grid_view_ingerto > tbody > tr:first-child > th {
+    width: 10%;
+}
+
+#gv_cntr .grid_view_ingerto > tbody > tr:first-child > th:last-child {
+    width: 50%;
+}
+/* Para el grid ingerto */
+
 /* Final Estilos del Grid View */
