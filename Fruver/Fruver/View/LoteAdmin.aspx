@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterOperario.master" AutoEventWireup="true" CodeFile="~/Controller/LoteProducto.aspx.cs" Inherits="View_LoteProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterAdmin.master" AutoEventWireup="true" CodeFile="~/Controller/LoteAdmin.aspx.cs" Inherits="View_LoteAdmin" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -13,7 +13,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Nombre_lote" SortExpression="Nombre_lote">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote" Width="102px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_Nombre_lote" runat="server" ControlToValidate="TB_Nombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -22,7 +22,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Cantidad" SortExpression="Cantidad">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Width="100px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>' ValidationGroup="GV_CrearLote" TextMode="Number"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_Cantidad" runat="server" ControlToValidate="TB_Cantidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -31,7 +31,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Precio" SortExpression="Precio">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Precio" runat="server" Text='<%# Bind("Precio") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Width="110px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Precio" runat="server" Text='<%# Bind("Precio") %>' ValidationGroup="GV_CrearLote" TextMode="Number" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TB_Precio" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -40,7 +40,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Producto" SortExpression="Producto_id">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Producto" runat="server" Text='<%# Bind("Producto_id") %>' ValidationGroup="GV_CrearLote" Width="110px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Producto" runat="server" Text='<%# Bind("Producto_id") %>' ValidationGroup="GV_CrearLote"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TB_Producto" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -49,7 +49,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha_ingreso" SortExpression="Fecha_ingreso">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_fecha_ingreso" runat="server"  Text='<%# Bind("fecha_ingreso_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="106px"></asp:TextBox>
+                        <asp:TextBox ID="TB_fecha_ingreso" runat="server"  Text='<%# Bind("fecha_ingreso_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_fecha_ingreso" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -58,20 +58,17 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha_vencimiento" SortExpression="Fecha_vencimiento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_fecha_vencimiento" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="114px"></asp:TextBox>
+                        <asp:TextBox ID="TB_fecha_vencimiento" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TB_fecha_vencimiento" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label6" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>' ></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                 <asp:CommandField ButtonType="Image" CancelImageUrl="~/View/icons/close.png" EditImageUrl="~/View/icons/edit.png" HeaderText="Editar" ShowEditButton="True" UpdateImageUrl="~/View/icons/edit.png" ValidationGroup="GV_CrearLote" />
-                <asp:CommandField DeleteImageUrl="~/View/icons/close.png" HeaderText="Eliminar" ShowDeleteButton="True" ButtonType="Image" />
                 </Columns>
          </asp:gridview>
         <asp:ObjectDataSource ID="ODS_Lotes" runat="server" DataObjectTypeName="ELotes" DeleteMethod="eliminarLotes" InsertMethod="eliminarLotes" SelectMethod="obtenerLote" TypeName="DAOLotes" UpdateMethod="actualizarLotes"></asp:ObjectDataSource>
     </div>
-    <a href="CrearLotesOperario.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Crear Lote</a>
 </asp:Content>
 
 

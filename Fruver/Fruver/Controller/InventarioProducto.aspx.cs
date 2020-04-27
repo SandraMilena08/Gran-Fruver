@@ -28,4 +28,6 @@ public partial class View_InventarioProducto : System.Web.UI.Page
                 break;
         }
     }
+
+   
 }

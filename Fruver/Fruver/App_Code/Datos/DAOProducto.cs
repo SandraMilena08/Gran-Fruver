@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Npgsql;
+using NpgsqlTypes;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -16,7 +20,7 @@ public class DAOProducto
 
             using (Mapeo db = new Mapeo()) {
 
-                return db.producto.Where(x => x.Id ==  id).FirstOrDefault();
+                return db.producto.Where(x => x.Id == id).FirstOrDefault();
             }
 
         } catch { return null; }
@@ -56,19 +60,19 @@ public class DAOProducto
 
         using (var db = new Mapeo())
         {
-            List < EProducto > productos    =  db.producto.ToList();
+            List<EProducto> productos = db.producto.ToList();
 
-            for (int x = 0; x < productos.Count;x++ ) {
+            for (int x = 0; x < productos.Count; x++) {
 
                 productos[x].Lotes = obtenerloteProducto(productos[x].Id);
-                
 
             }
-
+          
             return productos;
 
         }
     }
+
 
     public void actualizarProducto(EProducto producto)
     {
@@ -134,4 +138,30 @@ public class DAOProducto
          * */
 
     }
+    public void NotificacionesTiempo()
+    {
+        DataTable notificacion = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("notificar", conection);
+           
+
+            conection.Open();
+            dataAdapter.Fill(notificacion);
+        }
+        catch (Exception Ex)
+        {
+            throw Ex;
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+    }
+
 }

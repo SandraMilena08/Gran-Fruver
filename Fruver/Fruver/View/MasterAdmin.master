@@ -41,19 +41,19 @@
                         <a class="nav-link text-uppercase text-expanded" href="AdminOperario.aspx">Operarios</a>                          
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="RegistroUsuario.aspx">Lotes</a>
+                        <a class="nav-link text-uppercase text-expanded" href="LoteAdmin.aspx">Lotes</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="PaginaProductos.aspx">Recetas</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Catalogos</a>
+                        <a class="nav-link text-uppercase text-expanded" href="CatalogoAdmin.aspx">Catalogos</a>
                     </li>
                      <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Promocion</a>
                     </li>
                      <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Productos</a>
+                        <a class="nav-link text-uppercase text-expanded" href="ProductoAdmin.aspx">Productos</a>
                     </li>
                       <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Index.aspx">

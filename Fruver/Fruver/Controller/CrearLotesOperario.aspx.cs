@@ -23,6 +23,11 @@ public partial class View_CrearLotesOperario : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Fecha de inicio invalida');</script>");
 
         }
+        else if (lotes.Cantidad <= 0)
+        {
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('La cantidad debe ser mayor a cero');</script>");
+        }
+
         else if (lotes.Fecha_vencimiento.Date < lotes.Fecha_ingreso.Date)
         {
             new DAOLotes().insertarLote(lotes);
