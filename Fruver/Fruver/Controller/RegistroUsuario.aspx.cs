@@ -14,6 +14,8 @@ public partial class View_RegistroUsuario : System.Web.UI.Page
 
     protected void B_IniciarSesion_Click(object sender, EventArgs e)
     {
+        ClientScriptManager am = this.ClientScript;
+
         EUsuario usuario = new EUsuario();
         usuario.Nombre = TB_Nombre.Text;
         usuario.UserName = TB_Username.Text;
@@ -23,7 +25,18 @@ public partial class View_RegistroUsuario : System.Web.UI.Page
         usuario.Direccion = TB_Direccion.Text;
         usuario.Session = usuario.Session;
         usuario.RolId = 1;
-        new DAOUsuario().insertarUsuario(usuario);
-        Response.Redirect("Login.aspx");
+
+        EUsuario eUsuario = new DAOUsuario().buscarCorreoUsuario(TB_Correo.Text, TB_Username.Text);
+
+        if (eUsuario == null)
+        {
+            new DAOUsuario().insertarUsuario(usuario);
+            Response.Redirect("Login.aspx");
+        }
+        else
+        {
+            am.RegisterClientScriptBlock(this.GetType(), "mensaje", "<script type='text/javascript'>alert('ERROR: El correo o el nombre de usuario ya existe');window.location=\"RegistroUsuario.aspx\"</script>");
+        }
+        
     }
 }

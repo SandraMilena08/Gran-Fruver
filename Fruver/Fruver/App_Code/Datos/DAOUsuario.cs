@@ -29,6 +29,15 @@ public class DAOUsuario
         }
     }
 
+    public EUsuario buscarCorreoUsuario(string correo, string nombreUsuario)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Correo.Equals(correo) || x.UserName.Equals(nombreUsuario)).FirstOrDefault();
+        }
+    }
+    
+
     public EUsuario obtenerUsuario(string correo)
     {
         using (var db = new Mapeo())
