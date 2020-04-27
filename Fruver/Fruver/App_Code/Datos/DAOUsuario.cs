@@ -6,12 +6,15 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Web;
+using System.Web.UI;
 
 /// <summary>
 /// Descripción breve de DAOUsuario
 /// </summary>
 public class DAOUsuario
 {
+    public ClientScriptManager ClientScript { get; private set; }
+
     public EUsuario login(EUsuario usuario)
     {
         using (var db = new Mapeo())
@@ -58,6 +61,8 @@ public class DAOUsuario
    
     public void actualizarUsuario(EUsuario usuario)
     {
+        ClientScriptManager am = this.ClientScript;
+
         using (var db = new Mapeo())
         {
             EUsuario usuarioDos = db.usuario.Where(x => x.Id == usuario.Id).First();
@@ -74,9 +79,18 @@ public class DAOUsuario
             usuarioDos.LastModify = DateTime.Now;
             db.usuario.Attach(usuarioDos);
 
-            var entry = db.Entry(usuarioDos);
-            entry.State = EntityState.Modified;
-            db.SaveChanges();
+            EUsuario eUsuario = new DAOUsuario().buscarCorreoUsuario(usuario.Correo, usuario.UserName);
+            
+            if(eUsuario == null)
+            {
+                var entry = db.Entry(usuarioDos);
+                entry.State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                am.RegisterClientScriptBlock(this.GetType(), "mensaje", "<script type='text/javascript'>alert('ERROR: El correo o el nombre de usuario ya existe');window.location=\"AdminOperario.aspx\"</script>");
+            }
 
         }
     }
