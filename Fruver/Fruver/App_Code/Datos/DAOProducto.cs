@@ -67,7 +67,7 @@ public class DAOProducto
                 productos[x].Lotes = obtenerloteProducto(productos[x].Id);
 
             }
-          
+
             return productos;
 
         }
@@ -103,12 +103,17 @@ public class DAOProducto
 
         }
     }
+
+
+
+
+
     public List<ELotes> obtenerloteProducto(int id)
     {
 
         using (var db = new Mapeo())
         {
-            return db.lotes.Where(x => x.Producto_id == id   ).ToList();
+            return db.lotes.Where(x => x.Producto_id == id).ToList();
 
             //return db.notificaciones.Where(x => x.usuario_id == Id logueado).ToList();
 
@@ -138,18 +143,25 @@ public class DAOProducto
          * */
 
     }
-    public void NotificacionesTiempo()
-    {
+    public List<EProducto> NotificacionesTiempo() 
+    { 
         DataTable notificacion = new DataTable();
         NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
+        List<EProducto> listaProductosAgotados = new List<EProducto>();
 
         try
         {
-            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("notificar", conection);
-           
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("producto.notificar", conection); 
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
 
             conection.Open();
             dataAdapter.Fill(notificacion);
+
+
+
+
         }
         catch (Exception Ex)
         {
@@ -162,6 +174,21 @@ public class DAOProducto
                 conection.Close();
             }
         }
+
+        for (int i = 0; i < notificacion.Rows.Count; i++) {
+            EProducto producto = new EProducto();
+            EUsuario usuario = new EUsuario();
+            producto.Id = int.Parse(notificacion.Rows[i]["id"].ToString());
+            producto.Nombre = notificacion.Rows[i]["nombre"].ToString();
+            
+            listaProductosAgotados.Add(producto);
+        }
+
+       
+
+        return listaProductosAgotados;
+
+    
     }
 
 }

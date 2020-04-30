@@ -103,5 +103,14 @@ public class DAOLotes
         }
 
     }
+    public List<ENotificar> ObtenerNotificacion() {        
+        using (var db = new Mapeo()) {
+            return db.notificar
+                .Include("Lote")
+                .Where(
+                    x =>  x.Estado == true
+                ).ToList();
+        }        
+    }
 
 }
