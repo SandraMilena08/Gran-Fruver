@@ -47,7 +47,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="PaginaProductos.aspx">Vista Pedidos</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Promocion</a>
+                        <a class="nav-link text-uppercase text-expanded" href="PromocionesOperario.aspx">Promocion</a>
                     </li>
                      <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Recetas</a>

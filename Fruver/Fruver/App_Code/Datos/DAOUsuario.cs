@@ -39,7 +39,23 @@ public class DAOUsuario
             return db.usuario.Where(x => x.Correo.Equals(correo) || x.UserName.Equals(nombreUsuario)).FirstOrDefault();
         }
     }
-    
+
+    public EUsuario buscarNombreUsuario(string nombreUsuario)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.UserName.Equals(nombreUsuario)).FirstOrDefault();
+        }
+    }
+
+    public EUsuario buscarCorreo(string correoUsuario)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Correo.Equals(correoUsuario)).FirstOrDefault();
+        }
+    }
+
 
     public EUsuario obtenerUsuario(string correo)
     {
@@ -61,8 +77,7 @@ public class DAOUsuario
    
     public void actualizarUsuario(EUsuario usuario)
     {
-        ClientScriptManager am = this.ClientScript;
-
+       
         using (var db = new Mapeo())
         {
             EUsuario usuarioDos = db.usuario.Where(x => x.Id == usuario.Id).First();
@@ -79,19 +94,11 @@ public class DAOUsuario
             usuarioDos.LastModify = DateTime.Now;
             db.usuario.Attach(usuarioDos);
 
-            EUsuario eUsuario = new DAOUsuario().buscarCorreoUsuario(usuario.Correo, usuario.UserName);
             
-            if(eUsuario == null)
-            {
                 var entry = db.Entry(usuarioDos);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
-            }
-            else
-            {
-                am.RegisterClientScriptBlock(this.GetType(), "mensaje", "<script type='text/javascript'>alert('ERROR: El correo o el nombre de usuario ya existe');window.location=\"AdminOperario.aspx\"</script>");
-            }
-
+           
         }
     }
     public void insertarAutentication(EAutenticacion autenticacion)

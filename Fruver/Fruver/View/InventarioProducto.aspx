@@ -8,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="gv_cntr">
-        <asp:gridview id="GV_InventarioProducto" class="grid_view six_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" OnRowCommand="GV_InventarioProducto_RowCommand" >
+        <asp:gridview id="GV_InventarioProducto" class="grid_view six_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" OnRowCommand="GV_InventarioProducto_RowCommand" OnRowUpdating="GV_InventarioProducto_RowUpdating" >
             <Columns>
                 <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Nombre") %>' Width="154px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -21,8 +21,9 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Imagen" SortExpression="Imagen">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Imagen") %>' ValidationGroup="GV_Usuario" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:Image ID="I_EProducto" runat="server" ImageUrl='<%# Bind("Imagen") %>' Width="20%" />
+                        <br />
+                        <asp:FileUpload ID="FU_Editar" runat="server" Width="274px" />
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Imagen") %>' ValidationGroup="GV_Usuario"/>

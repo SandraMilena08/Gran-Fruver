@@ -12,12 +12,13 @@ public partial class View_LoteAdmin : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         string productosAgotados = "";
 
-        List<ENotificar> listaProductosAgotados = new DAOLotes().ObtenerNotificacion();
+        List<EProducto> listaProductosAgotados = new DAOProducto().NotificarProducto();
 
-        foreach (ENotificar notificaciones in listaProductosAgotados)
-            productosAgotados = String.Concat(productosAgotados, " - ", notificaciones.Lote.Nombre_lote);
 
-        cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto Agotado" + productosAgotados + "');</script>");
+        foreach (EProducto notificaciones in listaProductosAgotados)
+            productosAgotados = String.Concat(productosAgotados, " - ", notificaciones.Nombre );
+
+        cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto y Lote Agotado" + productosAgotados + "');</script>");
 
     }
 }

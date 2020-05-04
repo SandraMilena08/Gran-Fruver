@@ -26,7 +26,7 @@ public class Mapeo : DbContext
     public DbSet<EAutenticacion> autenticacion { get; set; }
     public DbSet<EProducto> producto { get; set; }
     public DbSet<ELotes> lotes { get; set; }
-    public DbSet<ENotificar> notificar { get; set; }
+    public DbSet<EPromociones> promociones { get; set; }
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema(this.schema);

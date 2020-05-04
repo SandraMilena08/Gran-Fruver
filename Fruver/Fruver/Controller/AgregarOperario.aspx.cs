@@ -30,7 +30,7 @@ public partial class View_AgregarOperario : System.Web.UI.Page
 
         if (eUsuario == null)
         {
-            new DAOUsuario().insertarUsuario(usuario);
+            new DAOUsuario().actualizarUsuario(usuario);
             Response.Redirect("AdminOperario.aspx");
         }
         else

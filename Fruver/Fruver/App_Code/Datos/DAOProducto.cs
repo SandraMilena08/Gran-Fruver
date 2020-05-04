@@ -104,10 +104,6 @@ public class DAOProducto
         }
     }
 
-
-
-
-
     public List<ELotes> obtenerloteProducto(int id)
     {
 
@@ -115,35 +111,19 @@ public class DAOProducto
         {
             return db.lotes.Where(x => x.Producto_id == id).ToList();
 
-            //return db.notificaciones.Where(x => x.usuario_id == Id logueado).ToList();
-
         }
 
-        /*
-         * 
-         *   int idProduct = 10;
-            using (var db = new Mapeo())
-            {
-                return (from lote in db.lotes
-                        join p in db.producto on lote.Producto_id equals p.Id
-                        where lote.Producto_id == idProducto
-                        select new
-                        {
-                            lote,
-                            p
-                        }).ToList().Select(m => new ELotes
-                        {
-                            Id = m.lote.Id,
-                            Cantidad = m.lote.Cantidad,
-                             Producto_id = m.lote.Producto_id,    
-                            Nombre_lote = m.lote.Nombre_lote,
-                            Precio = m.lote.Precio   
-                        }).ToList();
-            }
-         * */
-
     }
-    public List<EProducto> NotificacionesTiempo() 
+
+    public List<EPromociones> obtenerPromociones()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.promociones.ToList();
+        }
+    }
+
+    public List<EProducto> NotificarProducto() 
     { 
         DataTable notificacion = new DataTable();
         NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
@@ -151,7 +131,7 @@ public class DAOProducto
 
         try
         {
-            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("producto.notificar", conection); 
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("producto.notificar_producto", conection); 
             dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
@@ -178,8 +158,8 @@ public class DAOProducto
         for (int i = 0; i < notificacion.Rows.Count; i++) {
             EProducto producto = new EProducto();
             EUsuario usuario = new EUsuario();
-            producto.Id = int.Parse(notificacion.Rows[i]["id"].ToString());
-            producto.Nombre = notificacion.Rows[i]["nombre"].ToString();
+
+            producto.Nombre = notificacion.Rows[i]["nombre_lote"].ToString();
             
             listaProductosAgotados.Add(producto);
         }
@@ -190,5 +170,79 @@ public class DAOProducto
 
     
     }
+
+    public List<EProducto> Promociones()
+    {
+        DataTable promocion = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
+        List<EProducto> ProductosPromocion = new List<EProducto>();
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("venta.f_fecha_vencimiento", conection);
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+            conection.Open();
+            dataAdapter.Fill(promocion);
+
+
+
+
+        }
+        catch (Exception Ex)
+        {
+            throw Ex;
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+
+        for (int i = 0; i < promocion.Rows.Count; i++)
+        {
+            EProducto producto = new EProducto();
+            EUsuario usuario = new EUsuario();
+            producto.Id = int.Parse(promocion.Rows[i]["id"].ToString());
+            producto.Nombre = promocion.Rows[i]["nombre"].ToString();
+
+            ProductosPromocion.Add(producto);
+        }
+
+
+
+        return ProductosPromocion;
+
+
+    }
+    /*public List<Carrito> obtenerProductosCarrito(int userId)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from car in db.carrito
+                    join p in db.producto on car.ProductoId equals p.Id
+                    where car.UserId == userId
+                    select new
+                    {
+                        car,
+                        p
+                    }).ToList().Select(m => new Carrito
+                    {
+                        Id = m.car.Id,
+                        Cantidad = m.car.Cantidad,
+                        Url = m.p.Imagen,
+                        NombreProducto = m.p.Nombre,
+                        Fecha = m.car.Fecha,
+                        ProductoId = m.car.ProductoId,
+                        UserId = m.car.UserId,
+                        Precio = m.p.Precio,
+                        Total = m.p.Precio * m.car.Cantidad.Value
+                    }).ToList();
+        }
+    }*/
 
 }

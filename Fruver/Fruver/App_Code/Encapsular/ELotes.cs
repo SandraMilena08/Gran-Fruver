@@ -21,6 +21,7 @@ public class ELotes
     private DateTime fecha_vencimiento;
     private string fecha_ingreso_mostrar;
     private string fecha_vencimiento_mostrar;
+    private string nombreProducto;
 
 
     [Key]
@@ -42,4 +43,9 @@ public class ELotes
     public string Fecha_ingreso_mostrar { get => fecha_ingreso_mostrar; set => fecha_ingreso_mostrar = value; }
     [NotMapped]
     public string Fecha_vencimiento_mostrar { get => fecha_vencimiento_mostrar; set => fecha_vencimiento_mostrar = value; }
+    [NotMapped]
+    public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
+
+    
+    
 }

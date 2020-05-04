@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,16 +13,15 @@ public partial class View_InventarioProducto : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         string productosAgotados = "";
 
-        List<ENotificar> listaProductosAgotados = new DAOLotes().ObtenerNotificacion();
-       
-        foreach (ENotificar notificaciones in listaProductosAgotados)
-            productosAgotados = String.Concat(productosAgotados, " - ",notificaciones.Lote.Nombre_lote);
+        List<EProducto> listaProductosAgotados = new DAOProducto().NotificarProducto();
 
-        cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto Agotado" + productosAgotados +"');</script>" );
+
+        foreach (EProducto notificaciones in listaProductosAgotados)
+            productosAgotados = String.Concat(productosAgotados, " - ", notificaciones.Nombre);
+
+        cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto y Lote Agotado" + productosAgotados + "');</script>");
 
     }
-
-    
 
     protected void GV_InventarioProducto_RowCommand(object sender, GridViewCommandEventArgs e) {
 
@@ -39,6 +39,40 @@ public partial class View_InventarioProducto : System.Web.UI.Page
                 break;
         }
     }
+    
+    protected void GV_InventarioProducto_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+       
+            ClientScriptManager cm = this.ClientScript;
+            GridViewRow row = GV_InventarioProducto.Rows[e.RowIndex];
+            FileUpload cargue = (FileUpload)row.FindControl("FU_Editar");
+            string urlArchivoExistente = ((Image)row.FindControl("I_EProducto")).ImageUrl;
+            string nombreArchivo = System.IO.Path.GetFileName(cargue.PostedFile.FileName);
+          
+            if (nombreArchivo != null)
+            {
+                string extension = System.IO.Path.GetExtension(cargue.PostedFile.FileName);
+                string url = "~\\Imagenes\\" + nombreArchivo;
+                string saveLocation = Server.MapPath(url);
 
-   
+                if (!(extension.Equals(".png")))
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
+                    e.Cancel = true;
+                }
+
+                try
+                {
+                    File.Delete(Server.MapPath(urlArchivoExistente));
+                    cargue.PostedFile.SaveAs(saveLocation);
+                    e.NewValues["imagen"] = url;
+                }
+                catch (Exception exc)
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error: ');</script>");
+                    return;
+                }
+            }
+        
+    }
 }
