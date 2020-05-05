@@ -21,6 +21,15 @@ public partial class View_LoteProducto : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('La cantidad debe ser mayor a cero ');</script>");
             e.Cancel = true;
         }
+
+        string nombrelote = ((TextBox)row.FindControl("TB_Nombre")).Text;
+
+        if (nombrelote != null)
+        {
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El nombre del lote ya existe');</script>");
+            e.Cancel = true;
+        }
+
     }
 
     protected void GV_InventarioProducto_RowDeleting(object sender, GridViewDeleteEventArgs e)

@@ -34,7 +34,7 @@ public class DAOLotes
         List<ELotes> lotes;
         using (var db = new Mapeo())
         {
-            lotes = db.lotes.ToList();
+            lotes = db.lotes.OrderByDescending(x => x.Fecha_ingreso).ToList();
         }
 
         foreach(ELotes lote in lotes){
