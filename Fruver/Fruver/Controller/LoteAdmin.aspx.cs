@@ -21,4 +21,6 @@ public partial class View_LoteAdmin : System.Web.UI.Page
         cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto y Lote Agotado" + productosAgotados + "');</script>");
 
     }
+
+    
 }

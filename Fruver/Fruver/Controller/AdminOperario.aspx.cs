@@ -30,4 +30,6 @@ public partial class View_AdminOperario : System.Web.UI.Page
         }
 
     }
+
+  
 }

@@ -73,22 +73,24 @@ public class DAOLotes
     {
         var db1 = new Mapeo();
         ELotes loteProducto = db1.lotes.Where(x => x.Id == eLotes.Id).First();
-        List<ELotes> producto = db1.lotes.Where(x => x.Id == eLotes.Id && x.Id != loteProducto.Id).ToList();
-        if (producto == null)
+        if (loteProducto.Cantidad == 0)
         {
-            actualizarDisponibilidad(loteProducto.Producto_id, false);
-        }
-       
+            ELotes loteSiguiente = db1.lotes.Where(x => x.Producto_id == loteProducto.Producto_id && x.Cantidad > 0).FirstOrDefault();
 
-        using (var db = new Mapeo())
+            if (loteSiguiente == null)
+            {
+                actualizarDisponibilidad(loteProducto.Producto_id, false);
+            }
+            using (var db = new Mapeo())
 
-        {
-            db.lotes.Attach(eLotes);
+            {
+                db.lotes.Attach(eLotes);
 
-            var entry = db.Entry(eLotes);
-            entry.State = EntityState.Deleted;
-           
-            db.SaveChanges();
+                var entry = db.Entry(eLotes);
+                entry.State = EntityState.Deleted;
+
+                db.SaveChanges();
+            }
         }
     }
 
