@@ -34,10 +34,13 @@ public class DAOLotes
         List<ELotes> lotes;
         using (var db = new Mapeo())
         {
+
             lotes = db.lotes.OrderByDescending(x => x.Fecha_ingreso).ToList();
+            lotes = db.lotes.ToList();
         }
 
-        foreach(ELotes lote in lotes){
+        foreach (ELotes lote in lotes) {
+            lote.Producto = new DAOProducto().BuscarProducto(lote.Producto_id);
             lote.Fecha_ingreso_mostrar = lote.Fecha_ingreso.ToString("dd/MM/yyyy");
             lote.Fecha_vencimiento_mostrar = lote.Fecha_vencimiento.ToString("dd/MM/yyyy");
         }
@@ -50,7 +53,7 @@ public class DAOLotes
         using (var db = new Mapeo())
         {
             ELotes lotesNuevo = db.lotes.Where(x => x.Id == eLotes.Id).First();
-            
+
             lotesNuevo.Nombre_lote = eLotes.Nombre_lote;
             lotesNuevo.Cantidad = eLotes.Cantidad;
             lotesNuevo.Precio = eLotes.Precio;
@@ -94,24 +97,24 @@ public class DAOLotes
         }
     }
 
-    public void actualizarDisponibilidad(int idProducto, Boolean estado)
-    {
-        using (var db = new Mapeo())
+        public void actualizarDisponibilidad(int idProducto, Boolean estado)
         {
-            EProducto productoDos = db.producto.Where(x => x.Id == idProducto).First();
-            
-
-            productoDos.Disponibilidad = estado;
-            db.producto.Attach(productoDos);
+            using (var db = new Mapeo())
+            {
+                EProducto productoDos = db.producto.Where(x => x.Id == idProducto).First();
 
 
-            var entry = db.Entry(productoDos);
-            entry.State = EntityState.Modified;
-            db.SaveChanges();
+                productoDos.Disponibilidad = estado;
+                db.producto.Attach(productoDos);
 
+
+                var entry = db.Entry(productoDos);
+                entry.State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
         }
-
     }
 
-   
-}
+
+// No estas mirando los errores

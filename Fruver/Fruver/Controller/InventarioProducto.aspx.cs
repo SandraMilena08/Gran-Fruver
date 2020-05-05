@@ -10,21 +10,26 @@ public partial class View_InventarioProducto : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
 
-        ClientScriptManager cm = this.ClientScript;
-        string productosAgotados = "";
+        if (Boolean.Parse(Session["mostrar_notificacion"].ToString())) {
 
-        List<EProducto> listaProductosAgotados = new DAOProducto().NotificarProducto();
-        foreach (EProducto notificaciones in listaProductosAgotados)
-          productosAgotados = String.Concat(productosAgotados, " - ", notificaciones.Nombre);
-           
-        if (listaProductosAgotados != null )
-        {
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto y Lote Agotado" + productosAgotados + "');</script>");
+            ClientScriptManager cm = this.ClientScript;
+            string productosAgotados = "";
 
+            List<EProducto> listaProductosAgotados = new DAOProducto().NotificarProducto();
+            foreach (EProducto notificaciones in listaProductosAgotados)
+                productosAgotados = String.Concat(productosAgotados, " - ", notificaciones.Nombre);
+
+            if (listaProductosAgotados != null)
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto y Lote Agotado" + productosAgotados + "');</script>");
+
+            }
+
+            Session["mostrar_notificacion"] = false;
         }
-       
+
+
     }
 
     protected void GV_InventarioProducto_RowCommand(object sender, GridViewCommandEventArgs e) {

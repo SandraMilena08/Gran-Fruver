@@ -6,15 +6,16 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Web;
+using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+
 
 /// <summary>
 /// Descripción breve de DAOUsuario
 /// </summary>
 public class DAOUsuario
 {
-    public ClientScriptManager ClientScript { get; private set; }
-
     public EUsuario login(EUsuario usuario)
     {
         using (var db = new Mapeo())
@@ -75,9 +76,8 @@ public class DAOUsuario
 
     }
    
-    public void actualizarUsuario(EUsuario usuario)
+    public bool actualizarUsuario(EUsuario usuario)
     {
-       
         using (var db = new Mapeo())
         {
             EUsuario usuarioDos = db.usuario.Where(x => x.Id == usuario.Id).First();
@@ -93,12 +93,13 @@ public class DAOUsuario
             usuarioDos.Session = usuario.Session;
             usuarioDos.LastModify = DateTime.Now;
             db.usuario.Attach(usuarioDos);
-
             
                 var entry = db.Entry(usuarioDos);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
            
+
+            return true;
         }
     }
     public void insertarAutentication(EAutenticacion autenticacion)

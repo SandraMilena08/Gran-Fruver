@@ -50,7 +50,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="PromocionesOperario.aspx">Promocion</a>
                     </li>
                      <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Recetas</a>
+                        <a class="nav-link text-uppercase text-expanded" href="PaginaRecetas.aspx">Recetas</a>
                     </li>
                      <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Catalogo.aspx">Catalogo</a>

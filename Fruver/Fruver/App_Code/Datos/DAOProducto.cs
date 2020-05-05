@@ -73,6 +73,13 @@ public class DAOProducto
         }
     }
 
+    public List<EProducto> obtenerProductosRecetas()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.producto.ToList();
+        }
+    }
 
     public void actualizarProducto(EProducto producto)
     {
@@ -91,6 +98,7 @@ public class DAOProducto
 
         }
     }
+
     public void eliminarProducto(EProducto eProducto)
     {
         using (var db = new Mapeo())
@@ -167,8 +175,6 @@ public class DAOProducto
        
 
         return listaProductosAgotados;
-
-    
     }
 
     public List<EProducto> Promociones()

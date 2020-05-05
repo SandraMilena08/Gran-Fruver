@@ -22,8 +22,9 @@ public class ELotes
     private string fecha_ingreso_mostrar;
     private string fecha_vencimiento_mostrar;
     private string nombreProducto;
+    private EProducto producto;
 
-
+    //Espera vuelvo a hacer pull
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -32,7 +33,7 @@ public class ELotes
     [Column("precio")]
     public int Precio { get => precio; set => precio = value; }
     [Column("producto_id")]
-    public int Producto_id { get => producto_id; set => producto_id = value; }
+    public int Producto_id { get => producto_id; set => producto_id = value; }    
     [Column("nombre_lote")]
     public string Nombre_lote { get => nombre_lote; set => nombre_lote = value; }
     [Column("fecha_ingreso")]
@@ -44,8 +45,7 @@ public class ELotes
     [NotMapped]
     public string Fecha_vencimiento_mostrar { get => fecha_vencimiento_mostrar; set => fecha_vencimiento_mostrar = value; }
     [NotMapped]
-    public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
-
-    
-    
+    public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }    
+    [NotMapped]
+    public EProducto Producto { get => producto; set => producto = value; }
 }

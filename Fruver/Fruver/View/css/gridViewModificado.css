@@ -123,9 +123,13 @@
     width: 25%;
 }
 
-    #gv_cntr two_columns_grid_view > tbody > tr > td {
+#gv_cntr two_columns_grid_view > tbody > tr > td {
         width: 50%;
-    }
+ }
+
+#gv_cntr .one_columns_grid_view > tbody > tr > td {
+     width: 100%;
+}
 
 /* Para el grid ingerto */
 #gv_cntr .grid_view_ingerto > tbody > tr > td {

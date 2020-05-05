@@ -14,7 +14,7 @@ public partial class View_MasterOperario : System.Web.UI.MasterPage
             if (int.Parse(Session["rolId"].ToString()) != 2) 
             {
                 Response.Redirect("Index.aspx");
-            }
+            }            
 
         } else
             Response.Redirect("Index.aspx");
