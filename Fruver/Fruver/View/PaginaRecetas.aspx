@@ -41,7 +41,7 @@
                             <asp:ObjectDataSource ID="ODS_Recetas" runat="server" SelectMethod="obtenerProductosRecetas" TypeName="DAOProducto"></asp:ObjectDataSource>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:GridView ID="GV_Productos" class="grid_view two_columns_grid_view" runat="server" DataSource='<%# Bind("ListaProductos") %>' AutoGenerateColumns="False">
+                            <asp:GridView ID="GV_Productos" class="grid_view two_columns_grid_view no_header" runat="server" DataSource='<%# Bind("ListaProductos") %>' AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:TemplateField ShowHeader="False">
                                         <ItemTemplate>

@@ -68,6 +68,11 @@
     box-shadow: none;
 }
 
+/* Sin cabecera */
+#gv_cntr .no_header > tbody > tr:first-child > th {
+    display: none;
+}
+
 /* Para grid view de 3 columnas */
 #gv_cntr .three_columns_grid_view > tbody > tr:first-child > th {
     width: 33.3%;
@@ -123,7 +128,7 @@
     width: 25%;
 }
 
-#gv_cntr two_columns_grid_view > tbody > tr > td {
+#gv_cntr .two_columns_grid_view > tbody > tr > td {
         width: 50%;
  }
 

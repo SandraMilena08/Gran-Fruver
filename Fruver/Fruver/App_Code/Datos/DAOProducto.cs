@@ -193,9 +193,6 @@ public class DAOProducto
             conection.Open();
             dataAdapter.Fill(promocion);
 
-
-
-
         }
         catch (Exception Ex)
         {

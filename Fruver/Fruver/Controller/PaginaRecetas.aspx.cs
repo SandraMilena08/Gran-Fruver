@@ -43,7 +43,11 @@ public partial class Controller_PaginaRecetas : System.Web.UI.Page
     {
         GridViewRow columna = GV_Recetas.Rows[e.RowIndex];
         EReceta receta = new EReceta();
+        EReceta recetaAux = new DAOReceta().obtenerReceta(Convert.ToInt32(GV_Recetas.DataKeys[e.RowIndex].Values[0]));
         List<EProducto> listaProductos = new List<EProducto>();
+
+        bool actualizarImagen = false;
+        int productosSeleccionados = 0; 
 
         try
         {
@@ -52,40 +56,54 @@ public partial class Controller_PaginaRecetas : System.Web.UI.Page
 
             switch (System.IO.Path.GetExtension(fileUpload.PostedFile.FileName).ToLower())
             {
-
+                case ".png":
                 case ".jpg":
-                    
-                    receta.Nombre = ((TextBox)columna.FindControl("TB_EditarNombre")).Text;
-                    receta.Descripcion = ((TextBox)columna.FindControl("TB_EditarDescripcion")).Text;
-                    receta.ImagenUrl = "~\\Imagenes\\ImagenesReceta" + ".jpg";
 
-                    CheckBoxList CBL_Receta = ((CheckBoxList)columna.FindControl("CBL_EditarReceta"));
+                    TextBox nombre = (TextBox)columna.FindControl("TB_EditarNombre");
+                    receta.Nombre = nombre.Text;
+                    receta.ImagenUrl = "~\\Imagenes\\" + receta.Nombre + ".jpg";
+                    actualizarImagen = true;
 
-                    EProducto producto = new EProducto();
+                    break;                                  
+            }
+            
 
-                    for (int i = 0; i < CBL_Receta.Items.Count; i++)
-                    {
-                        if (CBL_Receta.Items[i].Selected){
-                            producto = new DAOProducto().BuscarProducto(int.Parse(CBL_Receta.Items[i].Value));
-                            listaProductos.Add(producto);
-                        }
-                    }
+            CheckBoxList CBL_Receta = ((CheckBoxList)columna.FindControl("CBL_EditarReceta"));
 
+            EProducto producto = new EProducto();
 
-                    receta.ProductoId = JsonConvert.SerializeObject(listaProductos);
+            for (int i = 0; i < CBL_Receta.Items.Count; i++)
+            {
+                if (CBL_Receta.Items[i].Selected)
+                {
+                    productosSeleccionados =+ 1;
+                    producto = new DAOProducto().BuscarProducto(int.Parse(CBL_Receta.Items[i].Value));
+                    listaProductos.Add(producto);
+                }
+            }
+          
+            if (actualizarImagen == true)
+            {
+                fileUpload.PostedFile.SaveAs(Server.MapPath(receta.ImagenUrl));
+                e.NewValues["ImagenUrl"] = receta.ImagenUrl;
 
-
-                    break;
-
-                default:
-
-                    Response.Write("<script type='text/javascript'>alert('ERROR: El formato de la imagen es inválido.');</script>");
-                    Response.Redirect("PaginaRecetas.aspx");
-
-                    break;
+            } else {
+                receta.ImagenUrl = recetaAux.ImagenUrl;
+                e.NewValues["ImagenUrl"] = receta.ImagenUrl;
             }
 
-            fileUpload.PostedFile.SaveAs(Server.MapPath(receta.ImagenUrl));
+            if (productosSeleccionados > 0)
+            {
+                receta.ProductoId = JsonConvert.SerializeObject(listaProductos);
+                e.NewValues["ProductoId"] = receta.ProductoId;
+            }
+            else
+            {
+                receta.ProductoId = recetaAux.ProductoId;
+                e.NewValues["ProductoId"] = receta.ProductoId;
+            }
+
+            
 
         }
         catch (Exception ex)
@@ -94,8 +112,6 @@ public partial class Controller_PaginaRecetas : System.Web.UI.Page
             throw ex;
         }
 
-        e.NewValues.Insert(1, "imagenUrl", receta.ImagenUrl);
-        e.NewValues.Insert(1, "CBL_Receta", receta.ListaProductos);
-
+        GV_Recetas.DataBind();
     }
 }

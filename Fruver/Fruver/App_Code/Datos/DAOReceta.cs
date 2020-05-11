@@ -46,6 +46,15 @@ public class DAOReceta
 
     }
 
+    public EReceta obtenerReceta(int id)
+    {
+
+        using (var db = new Mapeo())
+        {
+            return db.receta.Where(x => x.Id == id).FirstOrDefault();
+
+        }
+    }
     public void actualizarReceta(EReceta receta)
     {
         using (var db = new Mapeo())
@@ -55,6 +64,7 @@ public class DAOReceta
             recetaDos.Descripcion = receta.Descripcion;
             recetaDos.Nombre = receta.Nombre;
             recetaDos.ImagenUrl = receta.ImagenUrl;
+            recetaDos.ProductoId = receta.ProductoId;
             db.receta.Attach(recetaDos);
 
             var entry = db.Entry(recetaDos);

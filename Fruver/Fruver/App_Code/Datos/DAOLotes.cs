@@ -116,5 +116,3 @@ public class DAOLotes
         }
     }
 
-
-// No estas mirando los errores
