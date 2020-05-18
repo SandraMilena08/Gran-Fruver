@@ -12,8 +12,9 @@ public partial class View_CatalogoProductos : System.Web.UI.Page
        
     }
 
-    protected void DL_Catalogo_ItemCommand(object source, DataListCommandEventArgs e) { 
+    protected void DL_Catalogo_ItemCommand(object source, DataListCommandEventArgs e) {
 
+        ClientScriptManager cm = this.ClientScript;
         int stock = int.Parse(((Label)e.Item.FindControl("L_CantidadDisponible")).Text);
         int cantidadSolicitada = int.Parse(((TextBox)e.Item.FindControl("TB_CantidadCarrito")).Text);        
         
@@ -33,14 +34,14 @@ public partial class View_CatalogoProductos : System.Web.UI.Page
 
             if (new DAOCarritoCompras().AgregarPedido(carrito) == true) {
 
-                // Se guardo el producto correctamente
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Se ha agregado a carrito');</script>");
 
             } else {
-                // Mensaje de error
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No se pudo agregar a carrito');</script>");
             }
 
         } else {
-            // Mensaje de error
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error');</script>");
         }
 
         this.DataBind();

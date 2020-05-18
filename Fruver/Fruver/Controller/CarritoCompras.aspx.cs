@@ -14,6 +14,7 @@ public partial class View_CarritoCompras : System.Web.UI.Page
     protected void B_CarritoCompras_Click(object sender, EventArgs e) {
 
         List<ELotes> listaLotesAgotados = new DAOCarritoCompras().ValidarCompra(int.Parse(Session["id"].ToString()));
+        ClientScriptManager cm = this.ClientScript;
 
         if (listaLotesAgotados.Count == 0) {
 
@@ -23,15 +24,19 @@ public partial class View_CarritoCompras : System.Web.UI.Page
 
 
                 } else {
-                    // Ocurrio un error actualizando el estado de los pedidos
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error no se puede comprar');</script>");
                 }
 
             } else {
-                // Ocurrio un error descontando los lotes                    
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No se pudo realizar la compra');</script>");
             }
 
         } else {
-            // Hay lotes que ya no tienen las cantidades para vender
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No hay suficiente cantidad');</script>");
         }
+
+        GV_CarritoCompras.DataBind();
     }
+
+
 }
