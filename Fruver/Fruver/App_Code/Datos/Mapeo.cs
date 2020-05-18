@@ -29,7 +29,8 @@ public class Mapeo : DbContext
     public DbSet<EPromociones> promociones { get; set; }
     public DbSet<EReceta> receta { get; set; }
     public DbSet<ECarritoCompras> carrito { get; set; }
-    
+    public DbSet<EFactura> factura { get; set; }
+
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema(this.schema);

@@ -1,11 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterUsuario.master" AutoEventWireup="true" CodeFile="~/Controller/CatalagoProductos.aspx.cs" Inherits="View_CatalagoProductos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterUsuario.master" AutoEventWireup="true" CodeFile="~/Controller/CatalogoProductos.cs" Inherits="View_CatalogoProductos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-            font-size: small;
-        }
         .auto-style2 {
             height: 20px;
         }
@@ -25,7 +21,7 @@
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-lower text-center mb-4">Catalogo Productos</span>
                                 <div class="text-center">
-                                    <asp:DataList ID="DataList1" Style="font-size: 17px" runat="server" DataSourceID="ODS_CatalagoProductos" RepeatDirection="Horizontal">
+                                    <asp:DataList ID="DL_Catalogo" Style="font-size: 17px" runat="server" DataSourceID="ODS_CatalagoProductos" RepeatDirection="Horizontal" OnItemCommand="DL_Catalogo_ItemCommand">
                                         <ItemTemplate>
                                             &nbsp;<asp:Label ID="NombreProductoLabel" runat="server" Text='<%# Eval("NombreProducto") %>' />
                                             <br />
@@ -50,23 +46,22 @@
                                                 <tr>
                                                     <td class="auto-style4">Cantidad disponible:</td>
                                                     <td class="text-left">
-                                                        <asp:TextBox ID="TB_CantidadDisponible" runat="server" Height="21px" ReadOnly="True" Text='<%# Eval("Cantidad") %>' Width="44px"></asp:TextBox>
+                                                        <asp:Label ID="L_CantidadDisponible" runat="server" Text='<%# Eval("Cantidad") %>'></asp:Label>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="auto-style2">Cantidad:</td>
                                                     <td class="auto-style3">
-                                                        <asp:TextBox ID="TB_CantidadCarrito" runat="server" TextMode="Number" min="1" max="9999" Width="44px" Height="21px"></asp:TextBox>
+                                                        <asp:TextBox ID="TB_CantidadCarrito" runat="server" TextMode="Number" Min="1" Max='<%# Eval("Cantidad") %>' Width="44px" Height="21px" ValidationGroup='<%# Eval("Id") %>' ></asp:TextBox>
                                                     
-                                                        <asp:CompareValidator ID="CV_Cantidad" runat="server" ControlToCompare="TB_CantidadDisponible" ControlToValidate="TB_CantidadCarrito" style="font-size:10px" ErrorMessage="Invalido" Type="Integer" Operator="LessThan" SetFocusOnError="True"></asp:CompareValidator>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="auto-style4">
-                                                        <asp:Button ID="B_Receta" class="btn btn-primary" runat="server" Text="Receta" />
+                                                        <asp:Button ID="B_Receta" class="btn btn-primary" runat="server" Text="Receta" ValidationGroup="VG_Receta" />
                                                     </td>
                                                     <td class="text-left">
-                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" />
+                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" ValidationGroup='<%# Eval("Id") %>' />
                                                     </td>
                                                 </tr>
                                             </table>
@@ -74,7 +69,7 @@
                                         </ItemTemplate>
                                     </asp:DataList>
                                 </div>
-                                <asp:ObjectDataSource ID="ODS_CatalagoProductos" runat="server" SelectMethod="obtenerLote" TypeName="DAOLotes"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_CatalagoProductos" runat="server" SelectMethod="obtenerLoteCatalogo" TypeName="DAOLotes"></asp:ObjectDataSource>
 
                             </h2>
                         </div>

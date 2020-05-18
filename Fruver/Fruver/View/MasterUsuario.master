@@ -37,17 +37,22 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="index.aspx">Inicio                            
+                        <a class="nav-link text-uppercase text-expanded" href="BienvenidoUsuario.aspx">Inicio                            
                         </a>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="CatalogoUsuario.aspx">Catalogo</a>
+                        <a class="nav-link text-uppercase text-expanded" href="CatalogoProductos.aspx">Catalogo</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="CatalagoProductos.aspx">Tienda</a>
+                        <a class="nav-link text-uppercase text-expanded" href="CatalogoProductos.aspx">Tienda</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="CarritoCompras.aspx">
+                            <asp:ImageButton ID="IB_CarritoCompras" runat="server" ImageUrl="~/View/icons/cart-plus-white.png" OnClick="IB_CarritoCompras_Click" />
+                        </a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Index.aspx">
-                            <asp:ImageButton ID="IB_CerrarSesion" Style="color: #fff; font-size: 22px;" title="" runat="server" ImageUrl="~/View/icons/power-off.png" OnClick="IB_CerrarSesion_Click" />
+                            <asp:ImageButton ID="IB_CerrarSesion" runat="server" ImageUrl="~/View/icons/power-off.png" OnClick="IB_CerrarSesion_Click" />
                         </a>
                     </li>
                 </ul>

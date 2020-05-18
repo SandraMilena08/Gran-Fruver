@@ -24,5 +24,11 @@ public partial class View_MasterUsuario : System.Web.UI.MasterPage
     {
         Session.Abandon();
         Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+        Response.Redirect("Index.aspx");
+    }
+
+    protected void IB_CarritoCompras_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("CarritoCompras.aspx");
     }
 }

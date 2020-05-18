@@ -57,7 +57,7 @@
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Index.aspx">
-                            <asp:ImageButton ID="IB_CerrarSesion" Style="color: #fff; font-size: 22px;" title="" runat="server"  ImageUrl="~/View/icons/power-off.png" OnClick="IB_CerrarSesion_Click" ValidationGroup="VG_Operario" />
+                            <asp:ImageButton ID="IB_CerrarSesion" runat="server"  ImageUrl="~/View/icons/power-off.png" OnClick="IB_CerrarSesion_Click" ValidationGroup="VG_Operario" />
                         </a>
                     </li>
                  

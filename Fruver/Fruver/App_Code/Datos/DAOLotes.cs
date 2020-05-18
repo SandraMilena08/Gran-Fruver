@@ -45,6 +45,23 @@ public class DAOLotes
         return lotes;
     }
 
+    public List<ELotes> obtenerLoteCatalogo()
+    {
+
+        List<ELotes> lotes;
+        using (var db = new Mapeo())
+        {
+            lotes = db.lotes.Where(x => x.Cantidad > 0).OrderBy(x => x.Fecha_ingreso).ToList();            
+        }
+
+        foreach (ELotes lote in lotes)
+        {        
+            lote.Producto = new DAOProducto().BuscarProducto(lote.Producto_id);
+        }
+
+        return lotes;
+    }
+
     public void actualizarLotes(ELotes eLotes)
     {
         using (var db = new Mapeo())

@@ -15,8 +15,11 @@ public class ECarritoCompras
     private int id;
     private int detalleLoteId;
     private int usuarioId;
+    private int cantidad;
     private int tipoVentaId;
     private ELotes detalleLote;
+    private bool estadoId;
+    private DateTime fecha;
 
     [Key]
     [Column("id")]
@@ -28,5 +31,10 @@ public class ECarritoCompras
     public int UsuarioId { get => usuarioId; set => usuarioId = value; }
     [Column("tipo_venta_id")]
     public int TipoVentaId { get => tipoVentaId; set => tipoVentaId = value; }
-   
+    [Column("estado_id")]
+    public bool EstadoId { get => estadoId; set => estadoId = value; }
+    [Column("fecha")]
+    public DateTime Fecha { get => fecha; set => fecha = value; }
+    [Column("cantidad")]
+    public int Cantidad { get => cantidad; set => cantidad = value; }
 }
