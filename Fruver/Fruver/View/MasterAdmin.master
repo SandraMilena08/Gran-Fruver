@@ -44,7 +44,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="LoteAdmin.aspx">Lotes</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="PaginaProductos.aspx">Recetas</a>
+                        <a class="nav-link text-uppercase text-expanded" href="PaginaRecetasAdmin.aspx">Recetas</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="CatalogoAdmin.aspx">Catalogos</a>

@@ -10,8 +10,6 @@ public partial class View_AdminOperario : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
     }
-
-
     protected void GV_IngresoOperario_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;

@@ -23,4 +23,6 @@ public partial class View_ProductoDetalle : System.Web.UI.Page {
     {
         Response.Redirect("InventarioProducto.aspx");
     }
+
+    
 }
