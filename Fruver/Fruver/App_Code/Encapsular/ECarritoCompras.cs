@@ -21,6 +21,7 @@ public class ECarritoCompras
     private bool estadoId;
     private DateTime fecha;
     private string tipoVenta;
+    private double precio;
 
     [Key]
     [Column("id")]
@@ -38,6 +39,8 @@ public class ECarritoCompras
     public DateTime Fecha { get => fecha; set => fecha = value; }
     [Column("cantidad")]
     public int Cantidad { get => cantidad; set => cantidad = value; }
+    [Column("precio")]
+    public double Precio { get => precio; set => precio = value; }
     [NotMapped]
-    public string TipoVenta { get => tipoVenta; set => tipoVenta = value; }
+    public string TipoVenta { get => tipoVenta; set => tipoVenta = value; }    
 }

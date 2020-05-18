@@ -18,15 +18,8 @@
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("DetalleLote.Producto.Imagen") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Precio" SortExpression="DetalleLote">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DetalleLote") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("DetalleLote.Precio") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:BoundField DataField="TipoVenta" HeaderText="Venta" SortExpression="TipoVenta" />
+                <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
             </Columns>
         </asp:GridView>
         <asp:ObjectDataSource ID="ODS_Carrito_Compras" runat="server" SelectMethod="LeerPedidosCliente" TypeName="DAOCarritoCompras">
@@ -35,6 +28,8 @@
             </SelectParameters>
         </asp:ObjectDataSource>
     </div>
-     <a href="CrearProducto.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Comprar</a>
+    <center>
+      <asp:Button ID="B_CarritoCompras"  runat="server" Text="Comprar" class="btn btn-primary" OnClick="B_CarritoCompras_Click" />
+    </center>
 </asp:Content>
 

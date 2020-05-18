@@ -59,4 +59,85 @@ public class DAOCarritoCompras
 
         } catch (Exception ex) { return false; }
     }
+
+    public List<ELotes> ValidarCompra(int usuarioId) {
+
+        try {
+
+            ELotes lote;
+            List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
+            List<ELotes> listaLotesAgotados = new List<ELotes>();
+
+            using (Mapeo db = new Mapeo()) {
+
+                foreach (ECarritoCompras pedido in listaPedidos) {
+                    lote = new DAOLotes().LeerLote(pedido.DetalleLoteId);
+                    if (pedido.Cantidad > lote.Cantidad) {
+                        listaLotesAgotados.Add(lote);
+                    }
+                }
+
+                return listaLotesAgotados; 
+            }
+
+        } catch (Exception ex) { throw ex; }
+    }
+
+    public bool CambiarEstadoPedido(int usuarioId) {        
+
+        try {
+
+            List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
+
+            using (Mapeo db = new Mapeo()) {
+
+                foreach (ECarritoCompras pedido in listaPedidos) {
+                    pedido.EstadoId = true;
+                    if (!ActualizarPedido(pedido))
+                        break;
+                }
+
+                return true;
+            }
+
+        } catch (Exception ex) { return false; }
+    }
+
+    public bool DescontarCantidadLote(int usuarioId) {
+
+        try {
+
+            ELotes lote;
+            List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
+
+            using (Mapeo db = new Mapeo()) {
+
+                foreach (ECarritoCompras pedido in listaPedidos) {
+
+                    lote = new DAOLotes().LeerLote(pedido.DetalleLoteId);
+                    lote.Cantidad = lote.Cantidad - pedido.Cantidad;
+                    if (!new DAOLotes().ActualizarLoteDescontar(lote))
+                        break;
+                }
+
+                return true;
+            }
+
+        } catch (Exception ex) { return false; }
+    }
+
+    public bool ActualizarPedido(ECarritoCompras pedido) {
+
+        try {            
+
+            using (Mapeo db = new Mapeo()) {
+
+                ECarritoCompras pedidoViejo = db.carrito.Where(x => x.Id == pedido.Id).FirstOrDefault();
+                db.Entry(pedidoViejo).CurrentValues.SetValues(pedido);
+                db.SaveChanges();
+                return true;
+            }
+
+        } catch (Exception ex) { return false; }
+    }
 }

@@ -17,7 +17,7 @@ public class EFactura
     private DateTime fechaCompra;
     private int usuarioId;
     private int tipoVentaId;
-    private string carroComprasId;
+    private string carroComprasId;    
 
     [Key]
     [Column("id")]
@@ -31,5 +31,5 @@ public class EFactura
     [Column("tipo_venta_id")]
     public int TipoVentaId { get => tipoVentaId; set => tipoVentaId = value; }
     [Column("carro_compras_id")]
-    public string CarroComprasId { get => carroComprasId; set => carroComprasId = value; }
+    public string CarroComprasId { get => carroComprasId; set => carroComprasId = value; }    
 }

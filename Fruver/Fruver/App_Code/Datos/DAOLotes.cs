@@ -137,5 +137,20 @@ public class DAOLotes
 
             }
         }
+
+    public bool ActualizarLoteDescontar(ELotes lote) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {                
+
+                ELotes loteViejo = db.lotes.Where(x => x.Id == lote.Id).FirstOrDefault();
+                db.Entry(loteViejo).CurrentValues.SetValues(lote);
+                db.SaveChanges();
+                return true;                
+            }
+
+        } catch (Exception ex) { return false; }
     }
+}
 
