@@ -23,9 +23,8 @@ public class ELotes
     private string fecha_vencimiento_mostrar;
     private string nombreProducto;
     private EProducto producto;
-    private string imagen;
 
-   
+    //Espera vuelvo a hacer pull
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -49,6 +48,4 @@ public class ELotes
     public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }    
     [NotMapped]
     public EProducto Producto { get => producto; set => producto = value; }
-    [NotMapped]
-    public string Imagen { get => imagen; set => imagen = value; }
 }

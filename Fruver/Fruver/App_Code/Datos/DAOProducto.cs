@@ -14,16 +14,16 @@ using System.Web;
 public class DAOProducto
 {
 
-    public EProducto BuscarProducto(int id)
-    {
-        try
-        {
-            using (Mapeo db = new Mapeo())
-            {
+    public EProducto BuscarProducto(int id) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
                 return db.producto.Where(x => x.Id == id).FirstOrDefault();
             }
-        }
-        catch { return null; }
+
+        } catch { return null; }
     }
 
     public bool insertarProducto(EProducto eProducto)
@@ -62,37 +62,16 @@ public class DAOProducto
         {
             List<EProducto> productos = db.producto.ToList();
 
-            for (int x = 0; x < productos.Count; x++)
-            {
+            for (int x = 0; x < productos.Count; x++) {
+
                 productos[x].Lotes = obtenerloteProducto(productos[x].Id);
+
             }
 
             return productos;
 
         }
     }
-    public List<EProducto> obtenerProductoCatalogo()
-    {
-        using (var db = new Mapeo())
-        {
-            List<EProducto> productos = db.producto.Where(x => x.Disponibilidad == true).ToList();
-           
-            foreach (EProducto producto in productos)
-            {
-                double aumento, AumTotal;
-
-                ELotes lote = db.lotes.Where(x => x.Producto_id == producto.Id).FirstOrDefault();
-                producto.Precio = lote.Precio;
-               // Aumento del 20% de cada producto
-                aumento = 0.20 * producto.Precio;
-                AumTotal = producto.Precio + aumento;
-                producto.Precio = AumTotal;
-                producto.Cantidad = lote.Cantidad;
-            }
-            return productos;
-        }
-    }
-
 
     public List<EProducto> obtenerProductosRecetas()
     {
@@ -138,39 +117,135 @@ public class DAOProducto
 
         using (var db = new Mapeo())
         {
-
             return db.lotes.Where(x => x.Producto_id == id).ToList();
+
         }
 
     }
-    
-    public List<EProducto> listarProductosConLotes()
+
+    public List<EPromociones> obtenerPromociones()
     {
         using (var db = new Mapeo())
         {
-            List<EProducto> productos = db.producto.Where(x => x.Disponibilidad == true).ToList();
-            foreach(EProducto producto in productos)
-            {
-                ELotes lote = db.lotes.Where(x => x.Producto_id == producto.Id).FirstOrDefault();
-                if (lote == null)
-                {
-                    producto.Cantidad = 0;
-                }
-                else
-                {
-                    producto.Cantidad = lote.Cantidad;
-                }
-               
-            }
-            return productos;
+            return db.promociones.ToList();
         }
     }
 
-    public List<EProducto> listarProductosAgotados(List<EProducto> productosDisponibles)
+    public List<EProducto> NotificarProducto() 
+    { 
+        DataTable notificacion = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
+        List<EProducto> listaProductosAgotados = new List<EProducto>();
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("producto.notificar_producto", conection); 
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+            conection.Open();
+            dataAdapter.Fill(notificacion);
+
+
+
+
+        }
+        catch (Exception Ex)
+        {
+            throw Ex;
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+
+        for (int i = 0; i < notificacion.Rows.Count; i++) {
+            EProducto producto = new EProducto();
+            EUsuario usuario = new EUsuario();
+
+            producto.Nombre = notificacion.Rows[i]["nombre_lote"].ToString();
+            
+            listaProductosAgotados.Add(producto);
+        }
+
+       
+
+        return listaProductosAgotados;
+    }
+
+    public List<EProducto> Promociones()
     {
-        return productosDisponibles.Where(x => x.Cantidad <= 1).ToList();
-    }    
+        DataTable promocion = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Postgres"].ConnectionString);
+        List<EProducto> ProductosPromocion = new List<EProducto>();
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("venta.f_fecha_vencimiento", conection);
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+            conection.Open();
+            dataAdapter.Fill(promocion);
+
+        }
+        catch (Exception Ex)
+        {
+            throw Ex;
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+
+        for (int i = 0; i < promocion.Rows.Count; i++)
+        {
+            EProducto producto = new EProducto();
+            EUsuario usuario = new EUsuario();
+            producto.Id = int.Parse(promocion.Rows[i]["id"].ToString());
+            producto.Nombre = promocion.Rows[i]["nombre"].ToString();
+
+            ProductosPromocion.Add(producto);
+        }
+
+
+
+        return ProductosPromocion;
+
+
+    }
+    /*public List<Carrito> obtenerProductosCarrito(int userId)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from car in db.carrito
+                    join p in db.producto on car.ProductoId equals p.Id
+                    where car.UserId == userId
+                    select new
+                    {
+                        car,
+                        p
+                    }).ToList().Select(m => new Carrito
+                    {
+                        Id = m.car.Id,
+                        Cantidad = m.car.Cantidad,
+                        Url = m.p.Imagen,
+                        NombreProducto = m.p.Nombre,
+                        Fecha = m.car.Fecha,
+                        ProductoId = m.car.ProductoId,
+                        UserId = m.car.UserId,
+                        Precio = m.p.Precio,
+                        Total = m.p.Precio * m.car.Cantidad.Value
+                    }).ToList();
+        }
+    }*/
+
 }
-
-
-

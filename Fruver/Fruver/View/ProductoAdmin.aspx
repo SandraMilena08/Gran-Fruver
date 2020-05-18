@@ -31,7 +31,7 @@
                
                 </Columns>
          </asp:gridview>
-        <asp:ObjectDataSource ID="ODS_Producto" runat="server" DataObjectTypeName="EProducto"  DeleteMethod="eliminarProducto" InsertMethod="insertarProductoNuevo" SelectMethod="obtenerProductoCatalogo" TypeName="DAOProducto" UpdateMethod="actualizarProducto"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ODS_Producto" runat="server" DataObjectTypeName="EProducto"  DeleteMethod="eliminarProducto" InsertMethod="insertarProductoNuevo" SelectMethod="obtenerProductos" TypeName="DAOProducto" UpdateMethod="actualizarProducto"></asp:ObjectDataSource>
     </div>
    
 </asp:Content>

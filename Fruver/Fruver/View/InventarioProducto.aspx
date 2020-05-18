@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="gv_cntr">
-        <asp:gridview id="GV_InventarioProducto" class="grid_view six_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" OnRowCommand="GV_InventarioProducto_RowCommand" OnRowUpdating="GV_InventarioProducto_RowUpdating" OnRowDeleting="GV_InventarioProducto_RowDeleting"  >
+        <asp:gridview id="GV_InventarioProducto" class="grid_view six_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto" DataKeyNames="id" OnRowCommand="GV_InventarioProducto_RowCommand" OnRowUpdating="GV_InventarioProducto_RowUpdating" >
             <Columns>
                 <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">
                     <EditItemTemplate>

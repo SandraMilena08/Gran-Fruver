@@ -11,7 +11,7 @@
     <div id="gv_cntr">
         <asp:gridview id="GV_InventarioProducto" class="grid_view three_columns_grid_view" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Lotes" DataKeyNames="id" OnRowDeleting="GV_InventarioProducto_RowDeleting" OnRowUpdating="GV_InventarioProducto_RowUpdating">
             <Columns>
-                <asp:TemplateField HeaderText="Nombre lote" SortExpression="Nombre Lote">
+                <asp:TemplateField HeaderText="Nombre_lote" SortExpression="Nombre_lote">
                     <EditItemTemplate>
                         <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote" Width="102px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_Nombre_lote" runat="server" ControlToValidate="TB_Nombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -47,7 +47,7 @@
                         <asp:Label ID="Label4" runat="server" Text='<%# Bind("Producto_id") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Ingreso" SortExpression="Fecha_ingreso">
+                <asp:TemplateField HeaderText="Fecha_ingreso" SortExpression="Fecha_ingreso">
                     <EditItemTemplate>
                         <asp:TextBox ID="TB_fecha_ingreso" runat="server"  Text='<%# Bind("fecha_ingreso_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="106px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_fecha_ingreso" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -56,7 +56,7 @@
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("fecha_ingreso_mostrar") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Vencimiento" SortExpression="Fecha_vencimiento">
+                <asp:TemplateField HeaderText="Fecha_vencimiento" SortExpression="Fecha_vencimiento">
                     <EditItemTemplate>
                         <asp:TextBox ID="TB_fecha_vencimiento" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="114px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TB_fecha_vencimiento" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -69,7 +69,7 @@
                 <asp:CommandField DeleteImageUrl="~/View/icons/close.png" HeaderText="Eliminar" ShowDeleteButton="True" ButtonType="Image" />
                 </Columns>
          </asp:gridview>
-        <asp:ObjectDataSource ID="ODS_Lotes" runat="server" DataObjectTypeName="ELotes" DeleteMethod="eliminarLotes" InsertMethod="insertarLote" SelectMethod="obtenerLote" TypeName="DAOLotes" UpdateMethod="actualizarLotes"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ODS_Lotes" runat="server" DataObjectTypeName="ELotes" DeleteMethod="eliminarLotes" InsertMethod="eliminarLotes" SelectMethod="obtenerLote" TypeName="DAOLotes" UpdateMethod="actualizarLotes"></asp:ObjectDataSource>
     </div>
     <a href="CrearLotesOperario.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Crear Lote</a>
 </asp:Content>

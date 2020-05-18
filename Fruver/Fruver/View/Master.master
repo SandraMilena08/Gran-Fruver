@@ -43,9 +43,11 @@
                         <a class="nav-link text-uppercase text-expanded" href="RegistroUsuario.aspx">Registro</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="CatalogoIndex.aspx">Catalogo</a>
+                        <a class="nav-link text-uppercase text-expanded" href="ProductoIndex.aspx">Productos</a>
                     </li>
-                   
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="Tienda.aspx">Tienda</a>
+                    </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Login.aspx">
                             <span class="icon-user" style="color:#fff; font-size:22px;" title="Iniciar Sesion"></span>  

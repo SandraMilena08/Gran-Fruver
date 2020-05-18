@@ -45,7 +45,7 @@ public partial class View_CrearReceta : System.Web.UI.Page
                     for (int i = 0; i < CBL_Productos.Items.Count; i++)
                     {
                         if (CBL_Productos.Items[i].Selected) {
-                            producto = new DAOProducto().BuscarProducto(int.Parse(CBL_Productos.Items[i].Value));  
+                            producto = new DAOProducto().BuscarProducto(int.Parse(CBL_Productos.Items[i].Value)); // Se obtiene el id de los productos seleccionados y se buscan para traer sus datos 
                             listaProductos.Add(producto);
                         }                           
                     }

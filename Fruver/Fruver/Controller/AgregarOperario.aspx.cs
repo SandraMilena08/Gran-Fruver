@@ -21,23 +21,22 @@ public partial class View_AgregarOperario : System.Web.UI.Page
         usuario.UserName = TB_UserName.Text;
         usuario.Correo = TB_Correo.Text;
         usuario.Password = TB_Codigo.Text;
-        usuario.Celular = long.Parse(TB_Celular.Text);
+        usuario.Celular = long.Parse(TB_Celular.Text); 
         usuario.Direccion = TB_Direccion.Text;
         usuario.Session = usuario.Session;
         usuario.RolId = 2;
+        
         EUsuario eUsuario = new DAOUsuario().buscarCorreoUsuario(TB_Correo.Text, TB_UserName.Text);
+
         if (eUsuario == null)
         {
-            new DAOUsuario().insertarUsuario(usuario);
+            new DAOUsuario().actualizarUsuario(usuario);
             Response.Redirect("AdminOperario.aspx");
         }
         else
         {
             am.RegisterClientScriptBlock(this.GetType(), "mensaje", "<script type='text/javascript'>alert('ERROR: El correo o el nombre de usuario ya existe');window.location=\"AgregarOperario.aspx\"</script>");
         }
-
-
-
 
     }
 }

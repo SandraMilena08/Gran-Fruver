@@ -17,8 +17,6 @@ public partial class View_RegistroUsuario : System.Web.UI.Page
         ClientScriptManager am = this.ClientScript;
 
         EUsuario usuario = new EUsuario();
-        TB_Username.Text = TB_Username.Text.ToLower();
-        TB_Password.Text = TB_Password.Text.ToLower();
         usuario.Nombre = TB_Nombre.Text;
         usuario.UserName = TB_Username.Text;
         usuario.Correo = TB_Correo.Text;
