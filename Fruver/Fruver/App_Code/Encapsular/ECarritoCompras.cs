@@ -20,6 +20,7 @@ public class ECarritoCompras
     private ELotes detalleLote;
     private bool estadoId;
     private DateTime fecha;
+    private string tipoVenta;
 
     [Key]
     [Column("id")]
@@ -37,4 +38,6 @@ public class ECarritoCompras
     public DateTime Fecha { get => fecha; set => fecha = value; }
     [Column("cantidad")]
     public int Cantidad { get => cantidad; set => cantidad = value; }
+    [NotMapped]
+    public string TipoVenta { get => tipoVenta; set => tipoVenta = value; }
 }

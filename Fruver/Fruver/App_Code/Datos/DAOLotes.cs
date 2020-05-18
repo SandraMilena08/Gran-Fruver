@@ -9,6 +9,19 @@ using System.Web;
 /// </summary>
 public class DAOLotes
 {
+
+    public ELotes LeerLote(int loteId) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
+                return db.lotes.Where(x => x.Id == loteId).FirstOrDefault();
+            }
+
+        } catch (Exception ex) { throw ex; }
+    }
+
     public bool insertarLote(ELotes eLotes)
     {
         try

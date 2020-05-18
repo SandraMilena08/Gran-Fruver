@@ -53,7 +53,7 @@
                                                     <td class="auto-style2">Cantidad:</td>
                                                     <td class="auto-style3">
                                                         <asp:TextBox ID="TB_CantidadCarrito" runat="server" TextMode="Number" Min="1" Max='<%# Eval("Cantidad") %>' Width="44px" Height="21px" ValidationGroup='<%# Eval("Id") %>' ></asp:TextBox>
-                                                    
+                                                        <asp:RequiredFieldValidator ID="RFV_Cantidad" runat="server" ErrorMessage="*" ControlToValidate="TB_CantidadCarrito" ValidationGroup='<%# Eval("Id") %>'></asp:RequiredFieldValidator>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -61,7 +61,7 @@
                                                         <asp:Button ID="B_Receta" class="btn btn-primary" runat="server" Text="Receta" ValidationGroup="VG_Receta" />
                                                     </td>
                                                     <td class="text-left">
-                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" ValidationGroup='<%# Eval("Id") %>' />
+                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" ValidationGroup='<%# Eval("Id") %>' CommandArgument='<%# Eval("Id") %>' />
                                                     </td>
                                                 </tr>
                                             </table>

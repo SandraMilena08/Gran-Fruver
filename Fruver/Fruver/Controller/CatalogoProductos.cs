@@ -12,16 +12,35 @@ public partial class View_CatalogoProductos : System.Web.UI.Page
        
     }
 
-    protected void DL_Catalogo_ItemCommand(object source, DataListCommandEventArgs e)
-    {
-        int stock = int.Parse(((Label)e.Item.FindControl("L_CantidadDisponible")).Text);
-        int cantidadSolicitada = int.Parse(((TextBox)e.Item.FindControl("TB_CantidadCarrito")).Text);
+    protected void DL_Catalogo_ItemCommand(object source, DataListCommandEventArgs e) { // El argumment viene vacio enton
 
-        ECarritoCompras carrito = new ECarritoCompras();
-        carrito.DetalleLoteId = int.Parse(e.CommandArgument.ToString());
-        carrito.UsuarioId = int.Parse(Session["id"].ToString());
-        carrito.Cantidad = cantidadSolicitada;
-        carrito.TipoVentaId = 2;
-        carrito.Fecha = DateTime.Now;
+        int stock = int.Parse(((Label)e.Item.FindControl("L_CantidadDisponible")).Text);
+        int cantidadSolicitada = int.Parse(((TextBox)e.Item.FindControl("TB_CantidadCarrito")).Text);        
+        
+        if (new DAOCarritoCompras().ValidarCantidad(int.Parse(e.CommandArgument.ToString())) >= cantidadSolicitada) {
+
+            ECarritoCompras carrito = new ECarritoCompras();
+            carrito.DetalleLoteId = int.Parse(e.CommandArgument.ToString());
+            carrito.UsuarioId = int.Parse(Session["id"].ToString());
+            carrito.Cantidad = cantidadSolicitada;
+            carrito.TipoVentaId = 1; 
+            carrito.Fecha = DateTime.Now;
+            carrito.EstadoId = false;
+
+            
+
+            if (new DAOCarritoCompras().AgregarPedido(carrito) == true) {
+
+                // Se guardo el producto correctamente
+
+            } else {
+                // Mensaje de error
+            }
+
+        } else {
+            // Mensaje de error
+        }
+
+        this.DataBind();
     }
 }
