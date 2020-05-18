@@ -13,36 +13,33 @@ public class DAOLotes
     {
         try
         {
-
             using (var db = new Mapeo())
             {
                 db.lotes.Add(eLotes);
                 db.SaveChanges();
                 return true;
             }
-
         }
         catch (Exception ex)
         {
-
             throw ex;
         }
     }
-
     public List<ELotes> obtenerLote()
     {
+        new DAOPromociones().registrarPromociones();
         List<ELotes> lotes;
         using (var db = new Mapeo())
         {
-
             lotes = db.lotes.OrderByDescending(x => x.Fecha_ingreso).ToList();
-            lotes = db.lotes.ToList();
         }
 
         foreach (ELotes lote in lotes) {
+            
             lote.Producto = new DAOProducto().BuscarProducto(lote.Producto_id);
             lote.Fecha_ingreso_mostrar = lote.Fecha_ingreso.ToString("dd/MM/yyyy");
-            lote.Fecha_vencimiento_mostrar = lote.Fecha_vencimiento.ToString("dd/MM/yyyy");
+            lote.Fecha_vencimiento_mostrar = lote.Fecha_vencimiento.ToString("dd/MM/yyyy"); 
+
         }
 
         return lotes;
@@ -96,18 +93,14 @@ public class DAOLotes
             }
         }
     }
-
-        public void actualizarDisponibilidad(int idProducto, Boolean estado)
+   
+    public void actualizarDisponibilidad(int idProducto, Boolean estado)
         {
             using (var db = new Mapeo())
             {
                 EProducto productoDos = db.producto.Where(x => x.Id == idProducto).First();
-
-
                 productoDos.Disponibilidad = estado;
                 db.producto.Attach(productoDos);
-
-
                 var entry = db.Entry(productoDos);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();

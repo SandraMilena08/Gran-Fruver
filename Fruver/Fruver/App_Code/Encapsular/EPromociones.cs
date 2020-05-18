@@ -20,6 +20,12 @@ public class EPromociones
     private double precio;
     private int cantidad;
 
+    private string nombreLote;
+    private string imagen;
+    private bool disponibilidad;
+    private string fecha_vencimiento_mostrar;
+    private List<ELotes> lotes;
+
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -35,4 +41,15 @@ public class EPromociones
     public double Precio { get => precio; set => precio = value; }
     [Column("cantidad")]
     public int Cantidad { get => cantidad; set => cantidad = value; }
+    [Column("disponibilidad")]
+    public bool Disponibilidad { get => disponibilidad; set => disponibilidad = value; }
+    [NotMapped]
+    public string NombreLote { get => nombreLote; set => nombreLote = value; }
+    [NotMapped]
+    public string Imagen { get => imagen; set => imagen = value; }
+    [NotMapped]
+    public string Fecha_vencimiento_mostrar { get => fecha_vencimiento_mostrar; set => fecha_vencimiento_mostrar = value; }
+    [NotMapped]
+    public List<ELotes> Lotes { get => lotes; set => lotes = value; }
+   
 }

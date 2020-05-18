@@ -75,12 +75,12 @@ public class DAOUsuario
         }
 
     }
-   
-    public bool actualizarUsuario(EUsuario usuario)
+
+    public bool actualizarUsuario(EUsuario usuario) 
     {
         using (var db = new Mapeo())
         {
-            EUsuario usuarioDos = db.usuario.Where(x => x.Id == usuario.Id).First();
+            EUsuario usuarioDos = db.usuario.Where(x => x.Id == usuario.Id).FirstOrDefault();
             usuarioDos.Nombre = usuario.Nombre;
             usuarioDos.UserName = usuario.UserName;
             usuarioDos.Correo = usuario.Correo;

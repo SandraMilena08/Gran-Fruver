@@ -15,7 +15,7 @@ public partial class View_Login : System.Web.UI.Page
     protected void B_IniciarSesion_Click(object sender, EventArgs e)
     {
 
-        if (TB_UserName.Text.Contains("=") || TB_UserName.Text.Contains("'") || TB_Password.Text.Contains("'") || TB_Password.Text.Contains("=")) 
+        if (TB_UserName.Text.Contains("=") || TB_UserName.Text.Contains("'") || TB_UserName.Text.Contains("/") || TB_UserName.Text.Contains("//https:") || TB_UserName.Text.Contains(":") || TB_Password.Text.Contains("'") || TB_Password.Text.Contains("=") || TB_Password.Text.Contains("/") || TB_Password.Text.Contains("//https:") || TB_Password.Text.Contains(":")) 
         {
           
            Response.Write("<script type='text/javascript'>alert('Simbolos estan prohibidos por motivos de seguridad');</script>");
@@ -24,11 +24,13 @@ public partial class View_Login : System.Web.UI.Page
         {
 
             EUsuario eUsuario = new EUsuario();
+
+            TB_UserName.Text = TB_UserName.Text.ToLower();
+            TB_Password.Text = TB_Password.Text.ToLower();
             string usuarioIngresado = TB_UserName.Text;
             string contraseniaIngresada = TB_Password.Text;
             eUsuario.UserName = usuarioIngresado;
             eUsuario.Password = contraseniaIngresada;
-        
             eUsuario = new DAOUsuario().login(eUsuario);
 
             if (eUsuario == null) 

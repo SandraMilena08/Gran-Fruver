@@ -39,12 +39,8 @@
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="index.aspx">Inicio                            
                         </a>
-                    </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="RegistroUsuario.aspx">Registro</a>
-                    </li>
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="PaginaProductos.aspx">Productos</a>
+                        <a class="nav-link text-uppercase text-expanded" href="CatalogoUsuario.aspx">Catalogo</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="CatalagoProductos.aspx">Tienda</a>

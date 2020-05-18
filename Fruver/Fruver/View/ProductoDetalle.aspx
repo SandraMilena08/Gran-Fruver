@@ -15,6 +15,7 @@
                                 <asp:Label ID="L_Nombre" style="font-size: 15px;" runat="server" Text=""></asp:Label>
                                 <asp:Image ID="I_Imagen" runat="server" Height="15%" Width="15%" />
                                  <br />
+                                 &nbsp;&nbsp;&nbsp;
                                  <br />
                                 <div class="text-center">
                                 <asp:GridView ID="GV_Lotes" style="font-size: 15px;" runat="server" class="grid_view six_columns_grid_view" AutoGenerateColumns="False" DataSourceID="ODS_Lotes" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
