@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="gv_cntr">
-        <asp:GridView ID="GV_CarritoCompras" class="grid_view four_columns_grid_view" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Carrito_Compras">
+        <asp:GridView ID="GV_CarritoCompras" class="grid_view four_columns_grid_view" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Carrito_Compras" DataKeyNames="Id">
             <Columns>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
@@ -20,9 +20,10 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="TipoVenta" HeaderText="Venta" SortExpression="TipoVenta" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
+                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/View/icons/close.png" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ODS_Carrito_Compras" runat="server" SelectMethod="LeerPedidosCliente" TypeName="DAOCarritoCompras">
+        <asp:ObjectDataSource ID="ODS_Carrito_Compras" runat="server" SelectMethod="LeerPedidosCliente" TypeName="DAOCarritoCompras" DataObjectTypeName="ECarritoCompras" DeleteMethod="eliminarCarrito">
             <SelectParameters>
                 <asp:SessionParameter Name="usuarioId" SessionField="id" Type="Int32" />
             </SelectParameters>

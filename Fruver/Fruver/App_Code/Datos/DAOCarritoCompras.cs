@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -126,6 +127,33 @@ public class DAOCarritoCompras
         } catch (Exception ex) { return false; }
     }
 
+    public bool ValidarCantidadLote(int usuarioId)
+    {
+
+        try
+        {
+
+            ELotes lote;
+            List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
+
+            using (Mapeo db = new Mapeo())
+            {
+
+                foreach (ECarritoCompras pedido in listaPedidos)
+                {
+
+                    lote = new DAOLotes().LeerLote(pedido.DetalleLoteId);
+                    lote.Cantidad = lote.Cantidad - pedido.Cantidad;
+                    if (!new DAOLotes().ActualizarLoteDescontar(lote))
+                        break;
+                }
+
+                return true;
+            }
+
+        }
+        catch (Exception ex) { return false; }
+    }
     public bool ActualizarPedido(ECarritoCompras pedido) {
 
         try {            
@@ -139,5 +167,19 @@ public class DAOCarritoCompras
             }
 
         } catch (Exception ex) { return false; }
+    }
+
+
+    public void eliminarCarrito(ECarritoCompras carrito)
+    {
+        using (var db = new Mapeo())
+        {
+            db.carrito.Attach(carrito);
+
+            var entry = db.Entry(carrito);
+            entry.State = EntityState.Deleted;
+            db.SaveChanges();
+
+        }
     }
 }
