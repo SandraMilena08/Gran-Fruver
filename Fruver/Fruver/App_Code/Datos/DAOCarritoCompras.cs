@@ -182,4 +182,16 @@ public class DAOCarritoCompras
 
         }
     }
+
+    public ECarritoCompras LeerPedidoClienteLote(int idLote, int usuarioId) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
+                return db.carrito.Where(x => x.DetalleLoteId == idLote && x.EstadoId == false && x.UsuarioId == usuarioId).FirstOrDefault();
+            }
+
+        } catch (Exception ex) { throw ex; }
+    }
 }

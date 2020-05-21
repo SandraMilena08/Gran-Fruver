@@ -103,7 +103,7 @@ public class DAOReceta
                 }
 
                 foreach (EReceta receta in listaRecetas) { 
-
+                    
                     receta.ListaProductos = JsonConvert.DeserializeObject<List<EProducto>>(receta.ProductoId);                                       
                     ignorarReceta = true;
 
