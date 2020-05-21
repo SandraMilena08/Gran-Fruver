@@ -17,9 +17,19 @@
                                     <Columns>
                                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                                         <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
-                                        <asp:BoundField DataField="ImagenUrl" HeaderText="Imagen" SortExpression="ImagenUrl" />
+                                        <asp:TemplateField HeaderText="Imagen" SortExpression="ImagenUrl">
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ImagenUrl") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImagenUrl") %>' />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
+                                <center>
+                                    <asp:Button ID="B_Volver" runat="server" Text="Volver" class="btn btn-primary" OnClick="B_Volver_Click" />
+                                    </center>
                                 <asp:ObjectDataSource ID="ODS_Recetas" runat="server" SelectMethod="ObtenerRecetasProducto" TypeName="DAOReceta">
                                     <SelectParameters>
                                         <asp:QueryStringParameter Name="idProducto" QueryStringField="id" Type="Int32" />
