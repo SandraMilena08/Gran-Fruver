@@ -152,5 +152,31 @@ public class DAOLotes
 
         } catch (Exception ex) { return false; }
     }
+
+    public List<ELotes> LeerLotesCatalogo() {
+
+        try {
+            
+            using (Mapeo db = new Mapeo()) {
+
+                List<ELotes> lista = db.lotes.Where(x => x.Cantidad > 0).OrderBy(x => x.Fecha_ingreso).ToList(); 
+                List<ELotes> listaLotes = db.lotes.Where(x => x.Cantidad > 0).OrderBy(x => x.Fecha_ingreso).ToList();
+                List<EPromociones> listaPromociones = db.promociones.Where(x => x.Cantidad > 0 && x.Disponibilidad == true).ToList();
+                foreach (ELotes lote in lista) {
+                    lote.Producto = new DAOProducto().BuscarProducto(lote.Producto_id);
+                    foreach (EPromociones promocion in listaPromociones) {
+                        if (lote.Id == promocion.Lote_id) {
+                            listaLotes.Remove(lote);
+                            break;
+                        }
+                    }
+                }
+
+                return listaLotes;
+            }            
+
+        } catch (Exception ex) { throw ex; }
+    }
+
 }
 

@@ -98,6 +98,7 @@ public class DAOPromociones
                     promocion.FechaVencimiento1 = lote.Fecha_vencimiento;
                     promocion.Lote_id = lote.Id;
                     promocion.Precio = lote.Precio;
+                    promocion.TipoVentaId = 2;
                     promocion.Cantidad = lote.Cantidad;
                     promocion.Disponibilidad = true;
 
@@ -112,5 +113,31 @@ public class DAOPromociones
                 db.SaveChanges();
             }
         }
+    }
+
+    /* Método para el carrito de compras */
+    public int ValidarCantidad(int promocionId) {
+
+        try {
+                        
+            using (Mapeo db = new Mapeo()) {
+
+                EPromociones promocion = db.promociones.Where(x => x.Id == promocionId).FirstOrDefault();
+                return promocion.Cantidad;
+            }            
+
+        } catch (Exception ex) { throw ex; }
+    }
+
+    public EPromociones LeerPromocion(int promocionId) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
+                return db.promociones.Where(x => x.Id == promocionId).FirstOrDefault();
+            }
+
+        } catch (Exception ex) { throw ex; }
     }
 }

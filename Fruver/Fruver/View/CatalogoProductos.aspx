@@ -21,7 +21,7 @@
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-lower text-center mb-4">Catalogo Productos</span>
                                 <div class="text-center">
-                                    <asp:DataList ID="DL_Catalogo" Style="font-size: 17px" runat="server" DataSourceID="ODS_CatalagoProductos" RepeatDirection="Horizontal" OnItemCommand="DL_Catalogo_ItemCommand">
+                                    <asp:DataList ID="DL_Catalogo" Style="font-size: 17px" runat="server" DataSourceID="ODS_CatalagoProductos" RepeatDirection="Horizontal" OnItemCommand="DL_Catalogo_ItemCommand" RepeatColumns="3">
                                         <ItemTemplate>
                                             &nbsp;<asp:Label ID="NombreProductoLabel" runat="server" Text='<%# Eval("NombreProducto") %>' />
                                             <br />
@@ -69,7 +69,7 @@
                                         </ItemTemplate>
                                     </asp:DataList>
                                 </div>
-                                <asp:ObjectDataSource ID="ODS_CatalagoProductos" runat="server" SelectMethod="obtenerLoteCatalogo" TypeName="DAOLotes"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_CatalagoProductos" runat="server" SelectMethod="LeerLotesCatalogo" TypeName="DAOLotes"></asp:ObjectDataSource>
 
                             </h2>
                         </div>

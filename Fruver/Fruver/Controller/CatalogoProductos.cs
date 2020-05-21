@@ -26,7 +26,7 @@ public partial class View_CatalogoProductos : System.Web.UI.Page
 
             // For para mirar si el lote ya habia sido agregado 
             foreach (ECarritoCompras pedido in listaPedido) {
-                if (pedido.DetalleLote.Id == int.Parse(e.CommandArgument.ToString())) {
+                if (pedido.DetalleLote.Id == int.Parse(e.CommandArgument.ToString()) && pedido.TipoVentaId == 1) {
                     existeProducto = true;
                     if (pedido.Cantidad + cantidadSolicitada <= stock) {                        
                         bandera = true; // Si se puede aumentar la cantidad
