@@ -58,10 +58,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="auto-style4">
-                                                        <asp:Button ID="B_Receta" class="btn btn-primary" runat="server" Text="Receta" ValidationGroup="VG_Receta" />
+                                                        <asp:Button ID="B_Receta" class="btn btn-primary" runat="server" Text="Receta" ValidationGroup="VG_Receta" CommandName="Receta" CommandArgument='<%# Eval("Producto.Id") %>' />
                                                     </td>
                                                     <td class="text-left">
-                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" ValidationGroup='<%# Eval("Id") %>' CommandArgument='<%# Eval("Id") %>' />
+                                                        <asp:ImageButton ID="I_Carrito" runat="server" ImageUrl="~/View/icons/cart-plus.png" Width="30%" ValidationGroup='<%# Eval("Id") %>' CommandName="Carrito" CommandArgument='<%# Eval("Id") %>' />
                                                     </td>
                                                 </tr>
                                             </table>

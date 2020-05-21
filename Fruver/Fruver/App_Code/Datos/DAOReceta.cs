@@ -87,4 +87,42 @@ public class DAOReceta
       
         }
     }
+    
+    public List<EReceta> ObtenerRecetasProducto(int idProducto) {       
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {
+
+                bool ignorarReceta;
+                List<EReceta> listaRecetas = db.receta.ToList();
+                List<EReceta> listaRecetasFiltrada = db.receta.ToList();
+
+                foreach (EReceta receta in listaRecetasFiltrada) {
+                    receta.ListaProductos = JsonConvert.DeserializeObject<List<EProducto>>(receta.ProductoId);                                        
+                }
+
+                foreach (EReceta receta in listaRecetas) { 
+
+                    receta.ListaProductos = JsonConvert.DeserializeObject<List<EProducto>>(receta.ProductoId);                                       
+                    ignorarReceta = true;
+
+                    foreach(EProducto producto in receta.ListaProductos) { 
+
+                        if (producto.Id == idProducto) {
+
+                            ignorarReceta = false;
+                        }
+                    }
+
+                    if (ignorarReceta == true) {
+                        listaRecetasFiltrada.Remove(receta);
+                    }
+                }
+
+                return listaRecetasFiltrada;
+            }            
+
+        } catch (Exception ex) { throw ex; } 
+    }
 }

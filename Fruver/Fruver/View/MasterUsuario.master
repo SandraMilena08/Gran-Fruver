@@ -40,10 +40,13 @@
                         <a class="nav-link text-uppercase text-expanded" href="BienvenidoUsuario.aspx">Inicio                            
                         </a>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="CatalogoProductos.aspx">Catalogo</a>
+                        <a class="nav-link text-uppercase text-expanded" href="BienvenidoUsuario.aspx">Catalogo</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="CatalogoProductos.aspx">Tienda</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="PromocionesUsuario.aspx">Promociones</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="CarritoCompras.aspx">
