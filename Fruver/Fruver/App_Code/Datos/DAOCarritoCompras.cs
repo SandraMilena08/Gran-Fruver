@@ -8,7 +8,7 @@ using System.Web;
 public class DAOCarritoCompras
 {
 
-    public List<ECarritoCompras> LeerPedidosCliente(int usuarioId) {
+    public List<ECarritoCompras> LeerPedidosCliente(int usuarioId){
 
         try {
 
@@ -109,16 +109,27 @@ public class DAOCarritoCompras
         try {
 
             ELotes lote;
+            EPromociones promocion;
             List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
 
             using (Mapeo db = new Mapeo()) {
-
+                //creo que ya
                 foreach (ECarritoCompras pedido in listaPedidos) {
 
-                    lote = new DAOLotes().LeerLote(pedido.DetalleLoteId);
-                    lote.Cantidad = lote.Cantidad - pedido.Cantidad;
-                    if (!new DAOLotes().ActualizarLoteDescontar(lote))
-                        break;
+                    if (pedido.TipoVentaId == 1) {
+
+                        lote = new DAOLotes().LeerLote(pedido.DetalleLoteId);
+                        lote.Cantidad = lote.Cantidad - pedido.Cantidad;
+                        if (!new DAOLotes().ActualizarLoteDescontar(lote))
+                            break;
+
+                    } else {
+
+                        promocion = new DAOPromociones().LeerPromocion(pedido.DetalleLoteId);
+                        promocion.Cantidad = promocion.Cantidad - pedido.Cantidad;
+                        if (!new DAOPromociones().ActualizarPromocionDescontar(promocion))
+                            break;
+                    }                 
                 }
 
                 return true;

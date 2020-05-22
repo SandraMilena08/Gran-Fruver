@@ -116,28 +116,43 @@ public class DAOPromociones
     }
 
     /* Método para el carrito de compras */
-    public int ValidarCantidad(int promocionId) {
+    public int ValidarCantidad(int loteId) {
 
         try {
                         
             using (Mapeo db = new Mapeo()) {
 
-                EPromociones promocion = db.promociones.Where(x => x.Id == promocionId).FirstOrDefault();
+                EPromociones promocion = db.promociones.Where(x => x.Lote_id == loteId).FirstOrDefault();
                 return promocion.Cantidad;
             }            
 
         } catch (Exception ex) { throw ex; }
     }
 
-    public EPromociones LeerPromocion(int promocionId) {
+    public EPromociones LeerPromocion(int loteId) {
 
         try {
 
             using (Mapeo db = new Mapeo()) {
 
-                return db.promociones.Where(x => x.Id == promocionId).FirstOrDefault();
+                return db.promociones.Where(x => x.Lote_id == loteId).FirstOrDefault();
             }
 
         } catch (Exception ex) { throw ex; }
+    }
+
+    public bool ActualizarPromocionDescontar(EPromociones promocion) {
+
+        try {
+
+            using (Mapeo db = new Mapeo()) {                
+
+                EPromociones promocionVieja = db.promociones.Where(x => x.Id == promocion.Id).FirstOrDefault();
+                db.Entry(promocionVieja).CurrentValues.SetValues(promocion);
+                db.SaveChanges();
+                return true;                
+            }
+
+        } catch (Exception ex) { return false; }
     }
 }
