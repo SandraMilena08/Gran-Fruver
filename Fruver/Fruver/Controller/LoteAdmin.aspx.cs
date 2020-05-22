@@ -30,6 +30,5 @@ public partial class View_LoteAdmin : System.Web.UI.Page
         }
 
     }
-
-    
+   
 }

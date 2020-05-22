@@ -26,7 +26,6 @@
     <h1 class="site-heading text-center text-white d-none d-lg-block">
         <span class="site-heading-lower  font-weight-bold ">Gran Fruver</span>
     </h1>    
-
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
             <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.aspx">Gran Fruver</a>
@@ -44,12 +43,16 @@
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="CatalogoIndex.aspx">Catalogo</a>
-                    </li>
                    
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="Login.aspx">
                             <span class="icon-user" style="color:#fff; font-size:22px;" title="Iniciar Sesion"></span>  
                         </a>
+                      <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="https://www.mediafire.com/file/3im05f0mev6lq1o/Manual_De_Usuario.pdf/file">
+                       Manual de Usuario <span class="icon-arrow-down" style="color:#fff; font-size:15px;" title="Manual de Usuario"></span>  
+                      </a> 
+                        
                     </li>
                 </ul>
             </div>

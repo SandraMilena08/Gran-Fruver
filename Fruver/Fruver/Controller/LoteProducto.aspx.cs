@@ -52,4 +52,9 @@ public partial class View_LoteProducto : System.Web.UI.Page
             e.Cancel = true;
         }
     }
+
+    protected void B_ReporteLote_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReporteLote.aspx");
+    }
 }

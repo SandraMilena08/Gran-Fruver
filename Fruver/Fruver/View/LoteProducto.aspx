@@ -72,6 +72,9 @@
         <asp:ObjectDataSource ID="ODS_Lotes" runat="server" DataObjectTypeName="ELotes" DeleteMethod="eliminarLotes" InsertMethod="insertarLote" SelectMethod="obtenerLote" TypeName="DAOLotes" UpdateMethod="actualizarLotes"></asp:ObjectDataSource>
     </div>
     <a href="CrearLotesOperario.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Crear Lote</a>
+    <center>
+         <asp:Button ID="B_ReporteLote"  runat="server" Text="Reporte Lote" class="btn btn-primary" OnClick="B_ReporteLote_Click" />
+     </center>
 </asp:Content>
 
 

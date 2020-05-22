@@ -75,5 +75,8 @@
         <asp:ObjectDataSource ID="ODS_Ingreso" runat="server" DataObjectTypeName="EUsuario" DeleteMethod="eliminarUsuario" InsertMethod="insertarUsuario" SelectMethod="buscarUsuario" TypeName="DAOUsuario" UpdateMethod="actualizarUsuario"></asp:ObjectDataSource>
       </div>
     <a href="AgregarOperario.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Agregar Operario</a>
+ <center>
+    <asp:Button ID="B_ReporteAdmin"  runat="server" Text="Reporte Admin" class="btn btn-primary" OnClick="B_ReporteAdmin_Click"/>
+ </center>
 </asp:Content>
 

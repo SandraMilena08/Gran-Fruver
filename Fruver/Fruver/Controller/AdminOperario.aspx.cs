@@ -28,4 +28,9 @@ public partial class View_AdminOperario : System.Web.UI.Page
         }
 
     }
+
+    protected void B_ReporteAdmin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReporteAdmin.aspx");
+    }
 }
