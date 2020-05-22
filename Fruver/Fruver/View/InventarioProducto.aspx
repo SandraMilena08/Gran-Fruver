@@ -39,8 +39,13 @@
                 <asp:ButtonField ButtonType="Image" CommandName="Ver_Detalle" Text="Ver detalles" ImageUrl="~/View/icons/read-more.png" />
                 </Columns>
          </asp:gridview>
+        <center>
+       </center>
         <asp:ObjectDataSource ID="ODS_Producto" runat="server" DataObjectTypeName="EProducto"  DeleteMethod="eliminarProducto" InsertMethod="insertarProductoNuevo" SelectMethod="obtenerProductos" TypeName="DAOProducto" UpdateMethod="actualizarProducto"></asp:ObjectDataSource>
     </div>
     <a href="CrearProducto.aspx" class="d-block pt-4 text-light text-center" style="font-size:15px; text-transform:none;">Crear Producto</a>
+     <center>
+         <asp:Button ID="B_ReporteProducto"  runat="server" Text="Reporte Producto" class="btn btn-primary" OnClick="B_ReporteProducto_Click" />
+     </center>
 </asp:Content>
 

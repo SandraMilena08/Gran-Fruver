@@ -100,5 +100,10 @@ public partial class View_InventarioProducto : System.Web.UI.Page
             e.Cancel = true;
         }
     }
+
+    protected void B_ReporteProducto_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Reporte.aspx");
+    }
 }
 
