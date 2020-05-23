@@ -47,13 +47,8 @@ public class DAOLotes
             lotes = db.lotes.OrderByDescending(x => x.Fecha_ingreso).ToList();
         }
 
-        foreach (ELotes lote in lotes) {
-            
-            lote.Producto = new DAOProducto().BuscarProducto(lote.Producto_id);
-            lote.Fecha_ingreso_mostrar = lote.Fecha_ingreso.ToString("dd/MM/yyyy");
-            lote.Fecha_vencimiento_mostrar = lote.Fecha_vencimiento.ToString("dd/MM/yyyy"); 
+        
 
-        }
 
         return lotes;
     }

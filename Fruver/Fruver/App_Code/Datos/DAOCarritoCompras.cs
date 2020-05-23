@@ -205,4 +205,25 @@ public class DAOCarritoCompras
 
         } catch (Exception ex) { throw ex; }
     }
+
+
+    public List<ECarritoCompras> obtenerCarrito()
+    {
+        List<ECarritoCompras> carrito;
+
+        using (var db = new Mapeo())
+        {
+
+            carrito =  db.carrito.Where(x => x.EstadoId == true).ToList();
+        }
+
+        foreach (ECarritoCompras carro in carrito)
+        {
+            carro.DetalleLote = new DAOLotes().LeerLote(carro.DetalleLoteId);
+            carro.DetalleLote.Producto = new DAOProducto().BuscarProducto(carro.DetalleLote.Producto_id);
+
+        }
+
+        return carrito;
+    }
 }
