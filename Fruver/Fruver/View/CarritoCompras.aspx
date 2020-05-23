@@ -31,6 +31,10 @@
     </div>
     <center>
       <asp:Button ID="B_CarritoCompras"  runat="server" Text="Comprar" class="btn btn-primary" OnClick="B_CarritoCompras_Click" />
+        <br />
+    </center>
+    <center>
+      <asp:Button ID="B_FacturaCompra"  runat="server" Text="Factura Compra" class="btn btn-primary" OnClick="B_FacturaCompra_Click"/>
     </center>
 </asp:Content>
 

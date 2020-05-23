@@ -32,7 +32,47 @@ public class DAOCarritoCompras
 
         } catch (Exception ex) { throw ex; }
 
-    }    
+    }
+
+    public EUsuario obtenerComprador(int idUsuario)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault(); //depronto hacer el foreach para que aparescan los datos?
+        }
+    }
+
+    public List<ECarritoCompras> obtenerFactura(int UsuarioId)
+    {
+        using (var db = new Mapeo())
+        {
+            EUsuario usuario = db.usuario.Where(x => x.Id == UsuarioId).FirstOrDefault();
+            List<ECarritoCompras> factura = db.carrito.Where(x => x.UsuarioId == UsuarioId && x.EstadoId == false).ToList();
+            
+            foreach (ECarritoCompras carrito in factura)
+            {
+                ELotes lote = db.lotes.Where(x => x.Id == carrito.DetalleLoteId).FirstOrDefault();
+                EProducto producto = db.producto.Where(x => x.Id == lote.Producto_id).FirstOrDefault();
+                // productos de compra
+                carrito.NombreLote = lote.Nombre_lote;
+                carrito.Total = carrito.Precio * carrito.Cantidad;
+                //acumulador
+                carrito.TotalCompra = carrito.TotalCompra + carrito.Total;
+                carrito.Aux = carrito.TotalCompra;
+                if (carrito.TipoVentaId == 1)
+                {
+                    carrito.TipoVenta = "Normal";
+                }
+                else
+                {
+                    carrito.TipoVenta = "Promocion";
+                }
+                carrito.DetalleLote = new DAOLotes().LeerLote(carrito.DetalleLoteId);
+                carrito.DetalleLote.Producto = new DAOProducto().BuscarProducto(carrito.DetalleLote.Producto_id);
+            }
+            return factura;
+        }
+    }
     
     public int ValidarCantidad(int loteId) {
 

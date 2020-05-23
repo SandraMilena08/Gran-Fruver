@@ -22,11 +22,18 @@ public class ECarritoCompras
     private DateTime fecha;
     private string tipoVenta;
     private double precio;
+    private string nombreLote;
+    private string nombreusuario;
+    private string direccion;
+    private long celular;
+    private double total;
+    private double totalCompra;
+    private double aux;
 
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
-    [Column("detalle_lote_id")]    
+    [Column("detalle_lote_id")]
     public int DetalleLoteId { get => detalleLoteId; set => detalleLoteId = value; }
     public ELotes DetalleLote { get => detalleLote; set => detalleLote = value; }
     [Column("usuario_id")]
@@ -42,5 +49,19 @@ public class ECarritoCompras
     [Column("precio")]
     public double Precio { get => precio; set => precio = value; }
     [NotMapped]
-    public string TipoVenta { get => tipoVenta; set => tipoVenta = value; }    
+    public string TipoVenta { get => tipoVenta; set => tipoVenta = value; }
+    [NotMapped]
+    public string NombreLote { get => nombreLote; set => nombreLote = value; }
+    [NotMapped]
+    public double Total { get => total; set => total = value; }
+    [NotMapped]
+    public string Nombreusuario { get => nombreusuario; set => nombreusuario = value; }
+    [NotMapped]
+    public string Direccion { get => direccion; set => direccion = value; }
+    [NotMapped]
+    public long Celular { get => celular; set => celular = value; }
+    [NotMapped]
+    public double TotalCompra { get => totalCompra; set => totalCompra = value; }
+    [NotMapped]
+    public double Aux { get => aux; set => aux = value; }
 }
