@@ -24,6 +24,9 @@ public partial class View_MasterOperario : System.Web.UI.MasterPage
     {
         Session.Abandon();
         Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+        Session["userName"] = null;
+        Session["id"] = null;
+        Session["rolId"] = null;
         Response.Redirect("Index.aspx");
 
     }
