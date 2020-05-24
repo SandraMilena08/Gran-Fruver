@@ -19,6 +19,7 @@
                                     <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre Usuario</label>                                    
                                     <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_Login"  AutoComplete="off"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_UserName" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_UserName"></asp:RequiredFieldValidator>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Password</label>
