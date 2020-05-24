@@ -20,9 +20,9 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Cantidad" SortExpression="Cantidad">
+                <asp:TemplateField HeaderText="Cantidad(g)" SortExpression="Cantidad">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Width="100px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Width="100px" Min="1" Max="9999999"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_Cantidad" runat="server" ControlToValidate="TB_Cantidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -31,7 +31,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Precio" SortExpression="Precio">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Precio" runat="server" Text='<%# Bind("Precio") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Width="110px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Precio" runat="server" Text='<%# Bind("Precio") %>' ValidationGroup="GV_CrearLote" TextMode="Number" Min="100" Max="9999999" Width="110px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TB_Precio" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>

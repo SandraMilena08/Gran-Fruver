@@ -29,6 +29,25 @@ public class DAOPromociones
             return promo;
         }
     }
+
+    public List<EPromociones> obtenerPromocionesCatalogo()
+    {
+        using (var db = new Mapeo())
+        {
+            List<EPromociones> promo = db.promociones.Where(x => x.Disponibilidad == true && x.Cantidad > 0).ToList();
+
+            foreach (EPromociones promociones in promo)
+            {
+                ELotes lote = db.lotes.Where(x => x.Id == promociones.Lote_id).FirstOrDefault();
+                EProducto producto = db.producto.Where(x => x.Id == lote.Producto_id).FirstOrDefault();
+                promociones.Fecha_vencimiento_mostrar = lote.Fecha_vencimiento.ToString("dd/MM/yyyy");
+                promociones.NombreLote = lote.Nombre_lote;
+                promociones.Imagen = producto.Imagen;
+            }
+            return promo;
+        }
+    }
+
     public List<EPromociones> obtenerPromociones()
     {
         using (var db = new Mapeo())

@@ -38,7 +38,7 @@ public class DAOCarritoCompras
     {
         using (var db = new Mapeo())
         {
-            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault(); //depronto hacer el foreach para que aparescan los datos?
+            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault(); 
         }
     }
 

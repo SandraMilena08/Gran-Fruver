@@ -44,13 +44,13 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="auto-style4">Cantidad disponible:</td>
+                                                    <td class="auto-style4">Cantidad disponible(g):</td>
                                                     <td class="text-left">
                                                         <asp:Label ID="L_CantidadDisponible" runat="server" Text='<%# Eval("Cantidad") %>'></asp:Label>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="auto-style2">Cantidad:</td>
+                                                    <td class="auto-style2">Cantidad(g):</td>
                                                     <td class="auto-style3">
                                                         <asp:TextBox ID="TB_CantidadCarrito" runat="server" TextMode="Number" Min="1" Max='<%# Eval("Cantidad") %>' Width="44px" Height="21px" ValidationGroup='<%# Eval("Id") %>' ></asp:TextBox>
                                                         <asp:RequiredFieldValidator ID="RFV_Cantidad" runat="server" ErrorMessage="*" ControlToValidate="TB_CantidadCarrito" ValidationGroup='<%# Eval("Id") %>'></asp:RequiredFieldValidator>

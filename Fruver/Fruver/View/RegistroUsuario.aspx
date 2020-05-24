@@ -2,6 +2,11 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            font-size: small;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -19,7 +24,7 @@
                                         <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre </label>
                                         <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_RegistroUsuario" AutoComplete="off" MaxLength="20"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RFV_Nombre" class="d-inline-block p-0 px-1 alert alert-danger my-0" Width="5%" Heigth="100%" runat="server" ErrorMessage="*" ControlToValidate="TB_Nombre"></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras, un nombre con minimo de letras 3" ControlToValidate="TB_Nombre" ValidationExpression="[a-zA-Z ]{3,35}"  ValidationGroup="Registro" Font-Underline="True" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras, un nombre con minimo de letras 3" ControlToValidate="TB_Nombre" ValidationExpression="[a-zA-Z ]{3,35}"  ValidationGroup="Registro" Font-Underline="True" ForeColor="Red" CssClass="auto-style1"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="form-group">
                                         <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre de Usuario</label>
@@ -33,7 +38,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="d-block w-100" style="font-size: 20px;" for="exampleInputPassword1">Password</label>
-                                        <asp:TextBox ID="TB_Password" class="form-control float-left" Width="95%" runat="server" TextMode="Password" ValidationGroup="VG_RegistroUsuario" MaxLength="20" AutoComplete="off"></asp:TextBox>
+                                        <asp:TextBox ID="TB_Password" class="form-control float-left" Width="95%" runat="server" TextMode="Password" MinLength="5" ValidationGroup="VG_RegistroUsuario" MaxLength="20" AutoComplete="off"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RFV_Password" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Password"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="form-group">
