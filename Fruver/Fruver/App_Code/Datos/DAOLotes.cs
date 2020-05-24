@@ -84,7 +84,7 @@ public class DAOLotes
             lotesNuevo.Nombre_lote = eLotes.Nombre_lote;
             lotesNuevo.Cantidad = eLotes.Cantidad;
             lotesNuevo.Precio = eLotes.Precio;
-            lotesNuevo.Producto_id = eLotes.Producto_id;
+            lotesNuevo.Producto_id = lotesNuevo.Producto_id;
             lotesNuevo.Fecha_ingreso = DateTime.Parse(eLotes.Fecha_ingreso_mostrar);
             lotesNuevo.Fecha_vencimiento = DateTime.Parse(eLotes.Fecha_vencimiento_mostrar);
             lotesNuevo.Fecha_ingreso_mostrar = eLotes.Fecha_ingreso.ToString("dd/MM/yyyy");

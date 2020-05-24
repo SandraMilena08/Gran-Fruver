@@ -25,10 +25,10 @@
                                         <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre </label>
                                         <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_RegistroUsuario" AutoComplete="off" MaxLength="20" ValidateRequestMode="Disabled"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RFV_Nombre" class="d-inline-block p-0 px-1 alert alert-danger my-0" Width="5%" Heigth="100%" runat="server" ErrorMessage="*" ControlToValidate="TB_Nombre"></asp:RequiredFieldValidator>
+<<<<<<< HEAD
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras, un nombre con minimo de letras 3" ControlToValidate="TB_Nombre" ValidationExpression="[a-zA-Z ]{3,35}"  ValidationGroup="Registro" Font-Underline="True" ForeColor="Red" CssClass="auto-style1"></asp:RegularExpressionValidator>
 
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras, un nombre con minimo de letras 3" ControlToValidate="TB_Nombre" ValidationExpression="[a-zA-Z ]{3,35}"  ValidationGroup="Registro" Font-Underline="True" ForeColor="red" CssClass="auto-style1"></asp:RegularExpressionValidator>
-                                        <br />
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TB_Nombre" CssClass="auto-style1" ErrorMessage="Caracteres no validos" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras, un nombre con minimo de letras 3" ControlToValidate="TB_Nombre" ValidationExpression="[a-zA-Z ]{3,35}"  ValidationGroup="Registro" Font-Underline="True" ForeColor="black"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="form-group">
                                         <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre de Usuario</label>
