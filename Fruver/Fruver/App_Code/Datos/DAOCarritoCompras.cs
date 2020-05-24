@@ -38,11 +38,11 @@ public class DAOCarritoCompras
     {
         using (var db = new Mapeo())
         {
-            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault(); //depronto hacer el foreach para que aparescan los datos?
+            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault();  
         }
     }
 
-    public List<ECarritoCompras> obtenerFactura(int UsuarioId)
+    public List<ECarritoCompras> obtenerFactura(int UsuarioId) 
     {
         using (var db = new Mapeo())
         {
@@ -55,9 +55,7 @@ public class DAOCarritoCompras
                 EProducto producto = db.producto.Where(x => x.Id == lote.Producto_id).FirstOrDefault();
                 // productos de compra
                 carrito.NombreLote = lote.Nombre_lote;
-                carrito.Total = carrito.Precio * carrito.Cantidad;
-                //acumulador
-                carrito.TotalCompra = carrito.TotalCompra + carrito.Total;
+                carrito.TotalCompra = carrito.TotalCompra + carrito.Precio;
                 carrito.Aux = carrito.TotalCompra;
                 if (carrito.TipoVentaId == 1)
                 {
@@ -153,7 +151,7 @@ public class DAOCarritoCompras
             List<ECarritoCompras> listaPedidos = this.LeerPedidosCliente(usuarioId);
 
             using (Mapeo db = new Mapeo()) {
-                //creo que ya
+                
                 foreach (ECarritoCompras pedido in listaPedidos) {
 
                     if (pedido.TipoVentaId == 1) {

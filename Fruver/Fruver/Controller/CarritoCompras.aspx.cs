@@ -15,7 +15,7 @@ public partial class View_CarritoCompras : System.Web.UI.Page
 
         List<ELotes> listaLotesAgotados = new DAOCarritoCompras().ValidarCompra(int.Parse(Session["id"].ToString()));
         ClientScriptManager cm = this.ClientScript;
-
+        Response.Redirect("FacturaCompra.aspx");
         if (listaLotesAgotados.Count == 0) {
 
             if (new DAOCarritoCompras().DescontarCantidadLote(int.Parse(Session["id"].ToString()))) {
@@ -34,9 +34,7 @@ public partial class View_CarritoCompras : System.Web.UI.Page
         } else {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No hay suficiente cantidad');</script>");
         }
-
         GV_CarritoCompras.DataBind();
-        Response.Redirect("FacturaCompra.aspx");
     }
 
 

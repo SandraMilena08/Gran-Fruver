@@ -35,7 +35,7 @@ public partial class View_RecuperarPassword : System.Web.UI.Page
         if (TB_RecuperarPassword.Text.Equals(TB_PasswordNuevamente.Text))
         {
 
-            //usuario.Id = int.Parse(Session["user_id"].ToString()); // Esta linea sobra
+            //usuario.Id = int.Parse(Session["user_id"].ToString()); 
             usuario.Password = TB_RecuperarPassword.Text;
             usuario.EstadoId = 1;
             usuario.Token = null;
