@@ -38,18 +38,9 @@
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Producto" SortExpression="Producto_id">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TB_Producto" runat="server" Text='<%# Bind("Producto_id") %>' ValidationGroup="GV_CrearLote" Width="110px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TB_Producto" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Producto_id") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Ingreso" SortExpression="Fecha_ingreso">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_fecha_ingreso" runat="server"  Text='<%# Bind("fecha_ingreso_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="106px"></asp:TextBox>
+                        <asp:TextBox ID="TB_fecha_ingreso" runat="server"  Text='<%# Bind("fecha_ingreso_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="106px" ReadOnly="true"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_fecha_ingreso" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -58,7 +49,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Vencimiento" SortExpression="Fecha_vencimiento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_fecha_vencimiento" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="114px"></asp:TextBox>
+                        <asp:TextBox ID="TB_fecha_vencimiento" runat="server" Text='<%# Bind("fecha_vencimiento_mostrar") %>'  ValidationGroup="GV_CrearLote" TextMode="Date" Width="114px"  ReadOnly="true" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TB_fecha_vencimiento" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
