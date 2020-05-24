@@ -48,9 +48,8 @@
                                  <Columns>
                                      <asp:BoundField DataField="NombreLote" HeaderText="Producto" SortExpression="NombreLote" />
                                      <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
-                                     <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
                                      <asp:BoundField DataField="TipoVenta" HeaderText="Venta" SortExpression="TipoVenta" />
-                                     <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
+                                     <asp:BoundField DataField="Precio" HeaderText="Total" SortExpression="Precio" />
                                 </Columns>
                             </asp:GridView>
                                   <center>
