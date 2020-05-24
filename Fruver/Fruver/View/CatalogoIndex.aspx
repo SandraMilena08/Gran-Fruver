@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="gv_cntr">
-        <asp:gridview id="GV_InventarioProducto" class="grid_view three_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto">
+        <asp:gridview id="GV_InventarioProducto" class="grid_view two_columns_grid_view " runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Producto">
 
             <Columns>
                 <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">

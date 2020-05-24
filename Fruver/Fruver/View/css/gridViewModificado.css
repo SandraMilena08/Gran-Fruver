@@ -73,6 +73,9 @@
     display: none;
 }
 
+#gv_cntr .two_columns_grid_view > tbody > tr:first-child > th {
+        width: 50%;
+}
 /* Para grid view de 3 columnas */
 #gv_cntr .three_columns_grid_view > tbody > tr:first-child > th {
     width: 33.3%;
