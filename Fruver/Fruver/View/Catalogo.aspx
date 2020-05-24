@@ -27,7 +27,7 @@
                          <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Imagen") %>' ValidationGroup="GV_Catalogo"/>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Cantidad" SortExpression="Cantidad">
+                <asp:TemplateField HeaderText="Cantidad(g)" SortExpression="Cantidad">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Cantidad") %>'></asp:TextBox>
                     </EditItemTemplate>

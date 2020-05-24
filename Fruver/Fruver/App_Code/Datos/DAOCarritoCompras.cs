@@ -38,7 +38,11 @@ public class DAOCarritoCompras
     {
         using (var db = new Mapeo())
         {
+<<<<<<< HEAD
             return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault();  
+=======
+            return db.usuario.Where(x => x.Id == idUsuario).FirstOrDefault(); 
+>>>>>>> master
         }
     }
 

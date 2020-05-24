@@ -59,7 +59,7 @@
 <br />
                                     </ItemTemplate>
                                 </asp:DataList>
-                                <asp:ObjectDataSource ID="ODS_Promociones" runat="server" SelectMethod="obtenerPromocionesDisponibles" TypeName="DAOPromociones"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_Promociones" runat="server" SelectMethod="obtenerPromocionesCatalogo" TypeName="DAOPromociones"></asp:ObjectDataSource>
                             </h2>
                         </div>
                     </div>

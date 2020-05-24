@@ -21,7 +21,7 @@
                                 <asp:GridView ID="GV_Lotes" style="font-size: 15px;" runat="server" class="grid_view six_columns_grid_view" AutoGenerateColumns="False" DataSourceID="ODS_Lotes" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
-                                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
+                                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad(Kg)" SortExpression="Cantidad" />
                                         <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
                                         <asp:BoundField DataField="Producto_id" HeaderText="Producto" SortExpression="Producto_id" />
                                         <asp:BoundField DataField="Nombre_lote" HeaderText="Nombre lote" SortExpression="Nombre_lote" />

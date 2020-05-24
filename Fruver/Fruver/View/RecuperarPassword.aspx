@@ -16,11 +16,11 @@
                             <h2 class="section-heading mb-4"> 
                                 <span class="section-heading-lower text-center mb-4" style="font-size:35px">Recuperar Contraseña</span> 
                                 <div class="input-group flex-nowrap"> 
-                                    <asp:TextBox ID="TB_RecuperarPassword" class="form-control" placeholder="Digite contraseña" aria-label="Password" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_RecuperarPassword" MaxLength="20" TextMode="Password"></asp:TextBox> 
+                                    <asp:TextBox ID="TB_RecuperarPassword" class="form-control" placeholder="Digite contraseña" aria-label="Password" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_RecuperarPassword" MaxLength="20" MinLength="5" TextMode="Password"></asp:TextBox> 
                                     <asp:RequiredFieldValidator ID="RV_RecuperarPassword" runat="server" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" ErrorMessage="*" ControlToValidate="TB_RecuperarPassword" ></asp:RequiredFieldValidator> 
                                 </div> 
                                  <div class="input-group flex-nowrap"> 
-                                    <asp:TextBox ID="TB_PasswordNuevamente" class="form-control" placeholder="Nuevamente contraseña" aria-label="PasswordNuevamente" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_RecuperarPassword" MaxLength="20" TextMode="Password"></asp:TextBox> 
+                                    <asp:TextBox ID="TB_PasswordNuevamente" class="form-control" placeholder="Nuevamente contraseña" aria-label="PasswordNuevamente" aria-describedby="addon-wrapping" runat="server"  ValidationGroup="VG_RecuperarPassword" MaxLength="20" MinLength="5" TextMode="Password"></asp:TextBox> 
                                     <asp:RequiredFieldValidator ID="RV_PasswordNuevamente" runat="server" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" ErrorMessage="*" ControlToValidate="TB_PasswordNuevamente" ></asp:RequiredFieldValidator> 
                                 </div> 
                                 <center> 

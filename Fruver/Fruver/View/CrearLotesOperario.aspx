@@ -18,13 +18,13 @@
                                     <asp:RequiredFieldValidator ID="RFV_NombreLote" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_NombreLote"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
-                                    <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Cantidad</label>
-                                    <asp:TextBox ID="TB_Cantidad" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_CrearLote" AutoComplete="off" TextMode="Number"></asp:TextBox>
+                                    <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Cantidad(g)</label>
+                                    <asp:TextBox ID="TB_Cantidad" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_CrearLote" AutoComplete="off" TextMode="Number" Min="1" Max="9999999"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Cantidad" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Cantidad"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
                                     <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Precio</label>
-                                    <asp:TextBox ID="TB_Precio" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_CrearLote" AutoComplete="off" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Precio" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_CrearLote" AutoComplete="off" TextMode="Number" Min="100" Max="9999999"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Precio" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Precio"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
