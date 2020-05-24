@@ -15,7 +15,7 @@ public partial class View_Login : System.Web.UI.Page
     protected void B_IniciarSesion_Click(object sender, EventArgs e)
     {
 
-        if (TB_UserName.Text.Contains("=") || TB_UserName.Text.Contains("'") || TB_UserName.Text.Contains("/") || TB_UserName.Text.Contains("//https:") || TB_UserName.Text.Contains(":") || TB_Password.Text.Contains("'") || TB_Password.Text.Contains("=") || TB_Password.Text.Contains("/") || TB_Password.Text.Contains("//https:") || TB_Password.Text.Contains(":")) 
+        if (TB_UserName.Text.Contains("=") || TB_UserName.Text.Contains("'") || TB_UserName.Text.Contains("<") || TB_UserName.Text.Contains(">") || TB_UserName.Text.Contains("<php>") || TB_UserName.Text.Contains("/") || TB_UserName.Text.Contains("//https:") || TB_UserName.Text.Contains(":") || TB_Password.Text.Contains("'") || TB_Password.Text.Contains("=") || TB_Password.Text.Contains("/") || TB_Password.Text.Contains("//https:") || TB_Password.Text.Contains(":") || TB_Password.Text.Contains("<") || TB_Password.Text.Contains(">") || TB_Password.Text.Contains("<php>")) 
         {
           
            Response.Write("<script type='text/javascript'>alert('Simbolos estan prohibidos por motivos de seguridad');</script>");
