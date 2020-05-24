@@ -47,5 +47,7 @@
      <center>
          <asp:Button ID="B_ReporteProducto"  runat="server" Text="Reporte Producto" class="btn btn-primary" OnClick="B_ReporteProducto_Click" />
      </center>
+     <center>
+     </center>
 </asp:Content>
 

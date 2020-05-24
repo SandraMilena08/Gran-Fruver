@@ -36,7 +36,13 @@ public partial class View_CarritoCompras : System.Web.UI.Page
         }
 
         GV_CarritoCompras.DataBind();
+        Response.Redirect("FacturaCompra.aspx");
     }
 
 
+
+    protected void B_FacturaCompra_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FacturaCompra.aspx");
+    }
 }
