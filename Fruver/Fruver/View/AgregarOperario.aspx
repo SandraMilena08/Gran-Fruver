@@ -13,13 +13,15 @@
                                 <span class="section-heading-lower text-center mb-4">Agregar Operario</span>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre</label>                                    
-                                    <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off" ValidateRequestMode="Disabled"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Nombre" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Nombre"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TB_Nombre" CssClass="auto-style1" ErrorMessage="Caracteres no validos" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$" style="color: #FF0000; font-size: small"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Nombre Usuario</label>
-                                    <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off" ValidateRequestMode="Disabled"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_UserName" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_UserName"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TB_UserName" CssClass="auto-style1" ErrorMessage="Caracteres no validos" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$" style="color: #FF0000; font-size: small"></asp:RegularExpressionValidator>
                                 </div>
                                  <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Correo</label>

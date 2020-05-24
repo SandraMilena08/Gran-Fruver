@@ -12,7 +12,8 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TB_EditarNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                            <asp:TextBox ID="TB_EditarNombre" runat="server" Text='<%# Bind("Nombre") %>' ValidateRequestMode="Disabled"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TB_EditarNombre" CssClass="auto-style1" ErrorMessage="Caracteres no validos" style="color: #FF0000; font-size: small" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$"></asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="LB_NombreReceta" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>

@@ -13,8 +13,9 @@
             <Columns>
                 <asp:TemplateField HeaderText="Nombre lote" SortExpression="Nombre Lote">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote" Width="102px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote" Width="102px" ValidateRequestMode="Disabled"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_Nombre_lote" runat="server" ControlToValidate="TB_Nombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TB_Nombre" CssClass="auto-style1" ErrorMessage="Caracteres no validos" style="color: #FF0000; font-size: small" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nombre_lote") %>' ValidationGroup="GV_CrearLote"></asp:Label>
