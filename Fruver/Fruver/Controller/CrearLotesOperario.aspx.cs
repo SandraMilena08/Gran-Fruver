@@ -29,11 +29,10 @@ public partial class View_CrearLotesOperario : System.Web.UI.Page
             
         }
 
-        else if (lotes.Fecha_vencimiento.Date < lotes.Fecha_ingreso.Date)
+        else if (lotes.Fecha_vencimiento.Date <= lotes.Fecha_ingreso.Date)
         {
-            new DAOLotes().insertarLote(lotes);
-            new DAOLotes().actualizarDisponibilidad(lotes.Producto_id, true);
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No es posible agregar el producto, por que la fecha de vencimiento es menor a la fecha de ingreso');</script>");
+          
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No es posible agregar el producto, por que la fecha de vencimiento es menor a la fecha de ingreso o igual');</script>");
         }
         else {
             new DAOLotes().insertarLote(lotes);

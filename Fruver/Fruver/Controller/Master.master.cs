@@ -8,6 +8,9 @@ using System.Web.UI.WebControls;
 public partial class View_Master : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
-    {  
+    {
+        Session["userName"] = null;
+        Session["id"] = null;
+        Session["rolId"] = null;
     }    
 }
