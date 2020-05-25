@@ -99,8 +99,10 @@ public partial class Controller_PaginaRecetas : System.Web.UI.Page
             }
             else
             {
+
                 receta.ProductoId = recetaAux.ProductoId;
                 e.NewValues["ProductoId"] = receta.ProductoId;
+
             }
 
             

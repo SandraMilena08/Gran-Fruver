@@ -56,32 +56,53 @@ public partial class View_InventarioProducto : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         GridViewRow row = GV_InventarioProducto.Rows[e.RowIndex];
         FileUpload cargue = (FileUpload)row.FindControl("FU_Editar");
+        
+
         string urlArchivoExistente = ((Image)row.FindControl("I_EProducto")).ImageUrl;
         string nombreArchivo = System.IO.Path.GetFileName(cargue.PostedFile.FileName);
 
-        if (nombreArchivo != null)
+        if (cargue.PostedFile.FileName.Equals(""))
         {
-            string extension = System.IO.Path.GetExtension(cargue.PostedFile.FileName);
-            string url = "~\\Imagenes\\" + nombreArchivo;
-            string saveLocation = Server.MapPath(url);
+            
+            e.NewValues["imagen"] = urlArchivoExistente;
 
-            if (!(extension.Equals(".png")))
-            {
-                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
-                e.Cancel = true;
-            }
-            try
-            {
-                File.Delete(Server.MapPath(urlArchivoExistente));
-                cargue.PostedFile.SaveAs(saveLocation);
-                e.NewValues["imagen"] = url;
-            }
-            catch (Exception exc)
-            {
-                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error: ');</script>");
-                return;
-            }
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Producto actualizado ');</script>");
+            return;
+
+
         }
+        else {
+
+            if (nombreArchivo != null)
+            {
+                string extension = System.IO.Path.GetExtension(cargue.PostedFile.FileName);
+                string url = "~\\Imagenes\\" + nombreArchivo;
+                string saveLocation = Server.MapPath(url);
+
+
+                if (!(extension.Equals(".png")))
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
+                    e.Cancel = true;
+                }
+                try
+                {
+                    File.Delete(Server.MapPath(urlArchivoExistente));
+                    cargue.PostedFile.SaveAs(saveLocation);
+                    e.NewValues["imagen"] = url;
+                }
+                catch (Exception exc)
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error: ');</script>");
+                    return;
+                }
+            }
+
+
+        }
+
+
+       
 
     }
 

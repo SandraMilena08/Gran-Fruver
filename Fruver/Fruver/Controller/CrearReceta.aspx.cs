@@ -23,6 +23,14 @@ public partial class View_CrearReceta : System.Web.UI.Page
         try
         {
 
+            if (FU_RecetaImagen.PostedFile.FileName.Equals("")) {
+
+
+                Response.Write("<script type='text/javascript'>alert('ERROR: Por favor agrega una imagen ');</script>");
+                return;
+            }
+
+
             switch (System.IO.Path.GetExtension(FU_RecetaImagen.PostedFile.FileName).ToLower())
             {
                 case ".jpg":
@@ -48,6 +56,10 @@ public partial class View_CrearReceta : System.Web.UI.Page
                             producto = new DAOProducto().BuscarProducto(int.Parse(CBL_Productos.Items[i].Value));  
                             listaProductos.Add(producto);
                         }                           
+                    }
+                    if (listaProductos.Count == 0) {
+                        Response.Write("<script type='text/javascript'>alert('Por favor agrega minimo un producto');</script>");
+                        return;
                     }
 
 

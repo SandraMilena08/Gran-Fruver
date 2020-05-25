@@ -34,7 +34,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
       <asp:Button ID="B_FacturaCompra"  runat="server" Text="Factura Compra" class="btn btn-primary" OnClick="B_FacturaCompra_Click"/>
         &nbsp;&nbsp;&nbsp;
-      <asp:Button ID="B_Regresar"  runat="server" Text="Regresar a Catalogo" class="btn btn-primary" OnClick="B_FacturaCompra_Click"/>
+      <asp:Button ID="B_Regresar"  runat="server" Text="Regresar a Catalogo" class="btn btn-primary" OnClick="B_Regresa_Click"/>
         <br />
     </center>
     <center>
