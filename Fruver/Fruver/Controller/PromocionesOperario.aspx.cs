@@ -29,10 +29,11 @@ public partial class View_PromocionesOperario : System.Web.UI.Page
 
         bool disponibilidad = ((CheckBox)row.FindControl("CB_Disponibilidad")).Checked;
 
-        if (disponibilidad == true)
+        if (disponibilidad == true )
         {
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No se puede eliminar la promocion por que aun esta disponible');</script>");
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('No se puede eliminar la promocion por que aun esta disponible, o no a llegado a la fecha de caducidad');</script>");
             e.Cancel = true;
         }
+        
     }
 }
