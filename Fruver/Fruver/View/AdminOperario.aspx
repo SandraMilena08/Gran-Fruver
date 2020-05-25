@@ -16,8 +16,9 @@
             <Columns>
                 <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre") %>' ValidationGroup="GV_Usuario" Width="116px"></asp:TextBox>
+                        <asp:TextBox ID="TB_Nombre" runat="server" Text='<%# Bind("Nombre") %>' ValidationGroup="GV_Usuario" Width="89px" Height="18px" ValidateRequestMode="Disabled"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RFV_nombre" runat="server" BackColor="White" BorderColor="White" ControlToValidate="TB_Nombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpresion" runat="server" ControlToValidate="TB_Nombre" CssClass="auto-style1" ErrorMessage="Caracteres no validos" style="color: #FF0000; font-size: small" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
@@ -25,8 +26,9 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="UserName" SortExpression="UserName">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TB_UserName" runat="server" Text='<%# Bind("UserName") %>' ValidationGroup="GV_Usuario" Width="109px"></asp:TextBox>
+                        <asp:TextBox ID="TB_UserName" runat="server" Text='<%# Bind("UserName") %>' ValidationGroup="GV_Usuario" Width="84px" Height="19px" ValidateRequestMode="Disabled"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RVF_UserName" runat="server" ControlToValidate="TB_UserName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TB_UserName" CssClass="auto-style1" ErrorMessage="Caracteres no validos" style="color: #FF0000; font-size: small" ValidateRequestMode="Disabled" ValidationExpression="^[a-zA-ZñÑ\s-A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,-]+$"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("UserName") %>'></asp:Label>

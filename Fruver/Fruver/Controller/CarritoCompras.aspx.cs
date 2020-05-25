@@ -15,7 +15,7 @@ public partial class View_CarritoCompras : System.Web.UI.Page
 
         List<ELotes> listaLotesAgotados = new DAOCarritoCompras().ValidarCompra(int.Parse(Session["id"].ToString()));
         ClientScriptManager cm = this.ClientScript;
-        Response.Redirect("FacturaCompra.aspx");
+       
         if (listaLotesAgotados.Count == 0) {
 
             if (new DAOCarritoCompras().DescontarCantidadLote(int.Parse(Session["id"].ToString()))) {
@@ -41,6 +41,6 @@ public partial class View_CarritoCompras : System.Web.UI.Page
 
     protected void B_FacturaCompra_Click(object sender, EventArgs e)
     {
-        Response.Redirect("FacturaCompra.aspx");
+        Response.Redirect("ProductosUsuario.aspx");
     }
 }
