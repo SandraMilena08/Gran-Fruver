@@ -24,7 +24,7 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("UsuarioId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" DataFormatString="{0:d}" />
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/View/icons/check.png" ShowDeleteButton="True" />

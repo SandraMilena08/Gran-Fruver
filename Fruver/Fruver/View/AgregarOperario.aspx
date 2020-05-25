@@ -13,32 +13,32 @@
                                 <span class="section-heading-lower text-center mb-4">Agregar Operario</span>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size: 20px;" for="exampleInputEmail1">Nombre</label>                                    
-                                    <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Nombre" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off" MaxLength="20"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Nombre" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Heigth="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Nombre"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Nombre Usuario</label>
-                                    <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_UserName" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off" MaxLength="20"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_UserName" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_UserName"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Correo</label>
-                                    <asp:TextBox ID="TB_Correo" class="form-control float-left" Width="95%" runat="server" TextMode="Email" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Correo" class="form-control float-left" Width="95%" runat="server" TextMode="Email" ValidationGroup="VG_IngresaOperario" AutoComplete="off" MaxLength="50"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Correo" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Correo"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Codigo</label>
-                                    <asp:TextBox ID="TB_Codigo" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Codigo" class="form-control float-left" Width="95%" runat="server" ValidationGroup="VG_IngresaOperario" AutoComplete="off" MinLength="5" MaxLength="10"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Codigo" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Codigo"></asp:RequiredFieldValidator>
                                 </div>
                                  <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Celular</label>
-                                    <asp:TextBox ID="TB_Celular" class="form-control float-left" Width="95%" runat="server" TextMode="Number" min="1111111111" max="9999999999" AutoComplete="off" ValidationGroup="VG_IngresaOperario"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Celular" class="form-control float-left" Width="95%" runat="server" TextMode="Number" min="1111111111" max="9999999999" AutoComplete="off" ValidationGroup="VG_IngresaOperario" MaxLength="10"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="TFV_Celular" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Celular"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label class="d-block w-100" style="font-size:20px;" for="exampleInputPassword1">Direccion</label>
-                                    <asp:TextBox ID="TB_Direccion" class="form-control float-left" Width="95%" runat="server"  ValidationGroup="VG_IngresaOperario" AutoComplete="off"></asp:TextBox>
+                                    <asp:TextBox ID="TB_Direccion" class="form-control float-left" Width="95%" runat="server"  ValidationGroup="VG_IngresaOperario" AutoComplete="off" MaxLength="20"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RFV_Direccion" class="d-inline-block p-0 px-1 alert alert-danger" Width="5%" Height="38px" runat="server" ErrorMessage="*" ControlToValidate="TB_Direccion"></asp:RequiredFieldValidator>
                                 </div>
                                 <center>
